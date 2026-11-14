@@ -3,18 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SORTIE | Mohamed K. Mahdy</title>
+<title>Clash Organizer | Mohamed K. Mahdy</title>
 <meta name="description" content="Groups thousands of Navisworks clashes by building zone and preserves their status and comments when a clash test is run again.">
-<meta property="og:title" content="SORTIE | Mohamed K. Mahdy">
+<meta property="og:title" content="Clash Organizer | Mohamed K. Mahdy">
 <meta property="og:description" content="Groups thousands of Navisworks clashes by building zone and preserves their status and comments when a clash test is run again.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://mohamedkmahdy.com/projects/clash-management">
 <meta property="og:site_name" content="Mohamed K. Mahdy">
-<meta property="og:image" content="https://mohamedkmahdy.com/og/clash-management.png?v=a34e6a9b">
+<meta property="og:image" content="https://mohamedkmahdy.com/og/clash-management.png?v=1c4cd0b5">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://mohamedkmahdy.com/og/clash-management.png?v=a34e6a9b">
+<meta name="twitter:image" content="https://mohamedkmahdy.com/og/clash-management.png?v=1c4cd0b5">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='26' fill='%2309090b'/><text x='50' y='66' text-anchor='middle' font-size='44' font-weight='700' font-family='Inter,Arial,sans-serif' fill='%23fafafa'>MK</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,29 +42,29 @@
   <a class="crumb" href="../index.html#work">← All projects</a>
   <div class="phead">
     <span class="tag">Navisworks · clash tools</span>
-    <h1>SORTIE</h1>
+    <h1>Clash Organizer</h1>
     <p class="subtitle">4,000 clashes, 200 actual problems.</p>
     <ul class="chips" aria-label="Built with"><li>C#</li><li>Navisworks API 2022 to 2027</li><li>WPF</li><li>xUnit</li></ul>
   </div>
 </div></div>
 <section><div class="wrap read pbody">
-  <div class="plain"><span>Overview</span><p>Before construction, the models from every discipline are combined and checked by software for places where elements collide, such as a pipe passing through a beam. These collisions are called clashes, and a single check can report thousands. SORTIE groups them by area of the building so that each team can see its share, and carries notes and decisions over when the check is repeated.</p></div>
-  <div class="result"><span>Result</span>Every action applies only to the selected clash tests and can be undone in <strong>one step</strong>. Where a clash could match two others, SORTIE leaves it unchanged and does not guess.</div>
+  <div class="plain"><span>Overview</span><p>Before construction, the models from every discipline are combined and checked by software for places where elements collide, such as a pipe passing through a beam. These collisions are called clashes, and a single check can report thousands. Clash Organizer groups them by area of the building so that each team can see its share, and carries notes and decisions over when the check is repeated.</p></div>
+  <div class="result"><span>Result</span>Every action applies only to the selected clash tests and can be undone in <strong>one step</strong>. Where a clash could match two others, Clash Organizer leaves it unchanged and does not guess.</div>
   <h2>The problem</h2>
   <p class="problem">A clash run can report thousands of clashes when the real coordination problems number a few hundred. Sorting them by area manually, and losing every status and comment when the test is rerun, can take days.</p>
   <h2>The solution</h2>
-  <p><strong>SORTIE</strong> (Status Organiser, Renamer and Transferrer for Interference Events) is an add-in for Navisworks Manage 2022 to 2027. It has three functions.</p><p><strong>Zones.</strong> Clashes are grouped by the zone in which they are located, with one group per zone, or the zone name is placed in front of each clash name. A zone can be any 3D object: a mass, a room, or a separate zones model. The actual shape is used, not a bounding box, and where zones overlap the smallest one takes precedence.</p><p><strong>Status transfer.</strong> The status, assignee, approval, description and comments of each clash are saved and then restored to the same clashes in the same file or in another one, including from a Navisworks XML clash report. Clashes are matched first by their unique ID and then by the pair of elements.</p><p><strong>Clean-up.</strong> Clashes can be taken out of their groups again, and zone names can be removed from the clash names.</p>
+  <p><strong>Clash Organizer</strong> is an add-in for Navisworks Manage 2022 to 2027. It has three functions.</p><p><strong>Zones.</strong> Clashes are grouped by the zone in which they are located, with one group per zone, or the zone name is placed in front of each clash name. A zone can be any 3D object: a mass, a room, or a separate zones model. The actual shape is used, not a bounding box, and where zones overlap the smallest one takes precedence.</p><p><strong>Status transfer.</strong> The status, assignee, approval, description and comments of each clash are saved and then restored to the same clashes in the same file or in another one, including from a Navisworks XML clash report. Clashes are matched first by their unique ID and then by the pair of elements.</p><p><strong>Clean-up.</strong> Clashes can be taken out of their groups again, and zone names can be removed from the clash names.</p>
   <h2>Features</h2><ul class="features"><li>Groups clashes by the zone their clash point lies in, one group per zone, or adds the zone in front of each clash name</li><li>Zones can be any 3D objects: masses, rooms, generic models or a separate zones model</li><li>Uses the real zone shape, with a simple bounding box as a faster option for simple zones</li><li>Where zones overlap, the smallest wins; clashes outside every zone go to a "No zone" group</li><li>The zone name comes from the object's name or from any of its properties</li><li>Saves the status, assignee, approval, description and comments of clashes to a file</li><li>Loads them onto the same clashes in this or another Navisworks file, also from a Navisworks XML clash report</li><li>Matches clashes by their unique ID first, then by the pair of clashing elements; a clash with two possible matches is left alone</li><li>Clean up: moves clashes out of their groups, or removes the zone names again</li><li>Every action applies to the selected clash tests and is a single undo step</li><li>One add-in for Navisworks Manage 2022 to 2027, with its own ribbon tab, keyboard shortcuts and a per-user install</li></ul>
   <h2>Glossary</h2><dl class="gloss"><div><dt>Navisworks</dt><dd>Autodesk software that combines the models of all disciplines into one and checks them for clashes.</dd></div><div><dt>Add-in</dt><dd>A small program that runs inside another program, here inside Revit or Navisworks, and adds new buttons and features to it.</dd></div><div><dt>Clash</dt><dd>A place where two parts of a building model collide, for example a pipe running through a beam.</dd></div></dl>
   
 </div></section>
 <section><div class="wrap">
   <div class="sec-head"><p class="eyebrow">Gallery</p><h2>Screenshots and demonstrations</h2></div>
-  <div class="gallery"><figure><a href="../img/sortie-zones.png" target="_blank" rel="noopener"><img src="../img/sortie-zones.png" alt="Zones" loading="lazy"></a><figcaption><b>Zones</b></figcaption></figure><figure><a href="../img/sortie-transfer.png" target="_blank" rel="noopener"><img src="../img/sortie-transfer.png" alt="Status transfer" loading="lazy"></a><figcaption><b>Status transfer</b></figcaption></figure><figure><a href="../img/sortie-report.png" target="_blank" rel="noopener"><img src="../img/sortie-report.png" alt="A finished transfer" loading="lazy"></a><figcaption><b>A finished transfer</b></figcaption></figure><figure><a href="../img/sortie-cleanup.png" target="_blank" rel="noopener"><img src="../img/sortie-cleanup.png" alt="Clean up" loading="lazy"></a><figcaption><b>Clean up</b></figcaption></figure><figure><a href="../img/sortie-logo.png" target="_blank" rel="noopener"><img src="../img/sortie-logo.png" alt="The SORTIE mark" loading="lazy"></a><figcaption><b>The SORTIE mark</b></figcaption></figure></div>
+  <div class="gallery"><figure><a href="../img/clash-organizer-zones.png" target="_blank" rel="noopener"><img src="../img/clash-organizer-zones.png" alt="Zones" loading="lazy"></a><figcaption><b>Zones</b></figcaption></figure><figure><a href="../img/clash-organizer-transfer.png" target="_blank" rel="noopener"><img src="../img/clash-organizer-transfer.png" alt="Status transfer" loading="lazy"></a><figcaption><b>Status transfer</b></figcaption></figure><figure><a href="../img/clash-organizer-report.png" target="_blank" rel="noopener"><img src="../img/clash-organizer-report.png" alt="A finished transfer" loading="lazy"></a><figcaption><b>A finished transfer</b></figcaption></figure><figure><a href="../img/clash-organizer-cleanup.png" target="_blank" rel="noopener"><img src="../img/clash-organizer-cleanup.png" alt="Clean up" loading="lazy"></a><figcaption><b>Clean up</b></figcaption></figure><figure><a href="../img/clash-organizer-logo.png" target="_blank" rel="noopener"><img src="../img/clash-organizer-logo.png" alt="The Clash Organizer mark" loading="lazy"></a><figcaption><b>The Clash Organizer mark</b></figcaption></figure></div>
 </div></section>
 <section><div class="wrap"><div class="pn">
   <a href="aps-raumbuch.html"><small>← Previous project</small><b>Raumbuch</b></a>
-  <a class="next" href="rimacos.html"><small>Next project →</small><b>Rimacos</b></a>
+  <a class="next" href="clash-matrix.html"><small>Next project →</small><b>Clash Matrix</b></a>
 </div></div></section>
 </main>
 

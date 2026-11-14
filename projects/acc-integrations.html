@@ -3,18 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>LARBACC | Mohamed K. Mahdy</title>
+<title>ACC Backup | Mohamed K. Mahdy</title>
 <meta name="description" content="Copies Autodesk Construction Cloud projects to a local drive every week, downloading only what has changed.">
-<meta property="og:title" content="LARBACC | Mohamed K. Mahdy">
+<meta property="og:title" content="ACC Backup | Mohamed K. Mahdy">
 <meta property="og:description" content="Copies Autodesk Construction Cloud projects to a local drive every week, downloading only what has changed.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://mohamedkmahdy.com/projects/acc-integrations">
 <meta property="og:site_name" content="Mohamed K. Mahdy">
-<meta property="og:image" content="https://mohamedkmahdy.com/og/acc-integrations.png?v=f820a0dd">
+<meta property="og:image" content="https://mohamedkmahdy.com/og/acc-integrations.png?v=6472b4a0">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://mohamedkmahdy.com/og/acc-integrations.png?v=f820a0dd">
+<meta name="twitter:image" content="https://mohamedkmahdy.com/og/acc-integrations.png?v=6472b4a0">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='26' fill='%2309090b'/><text x='50' y='66' text-anchor='middle' font-size='44' font-weight='700' font-family='Inter,Arial,sans-serif' fill='%23fafafa'>MK</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,28 +42,28 @@
   <a class="crumb" href="../index.html#work">← All projects</a>
   <div class="phead">
     <span class="tag">ACC · backups</span>
-    <h1>LARBACC</h1>
+    <h1>ACC Backup</h1>
     <p class="subtitle">Stored in the cloud is not the same as backed up.</p>
     <ul class="chips" aria-label="Built with"><li>C#</li><li>.NET 8</li><li>WPF</li><li>Autodesk Platform Services (PKCE)</li><li>Data Management API</li></ul>
   </div>
 </div></div>
 <section><div class="wrap read pbody">
-  <div class="plain"><span>Overview</span><p>Many construction teams keep all their project files in Autodesk Construction Cloud, an online document platform. If a folder is deleted there or a subscription ends, the files can be lost. LARBACC copies selected projects to a local drive every week and retains the most recent copies.</p></div>
-  <div class="result"><span>Result</span>LARBACC began as a desktop front end for Stewart Celani's MIT-licensed <a href="https://github.com/stewartcelani/autodesk-construction-cloud-backup" rel="noopener">autodesk-construction-cloud-backup</a> and retains that history and credit.</div>
+  <div class="plain"><span>Overview</span><p>Many construction teams keep all their project files in Autodesk Construction Cloud, an online document platform. If a folder is deleted there or a subscription ends, the files can be lost. ACC Backup copies selected projects to a local drive every week and retains the most recent copies.</p></div>
+  <div class="result"><span>Result</span>ACC Backup began as a desktop front end for Stewart Celani's MIT-licensed <a href="https://github.com/stewartcelani/autodesk-construction-cloud-backup" rel="noopener">autodesk-construction-cloud-backup</a> and retains that history and credit.</div>
   <h2>The problem</h2>
   <p class="problem">Projects in Autodesk Construction Cloud appear safe because they are stored in the cloud. A deleted folder or an expired subscription can nevertheless remove years of work.</p>
   <h2>The solution</h2>
-  <p><strong>LARBACC</strong> (Local, Automatic, Rotating Backups of Autodesk Construction Cloud) keeps dated copies of ACC and BIM 360 projects on a local or network drive. The user selects the projects and folders, a destination and a weekly time. LARBACC downloads the latest version of every document and retains the most recent backups. The interface is available in German and English.</p><p><strong>Only changes are downloaded.</strong> If a document has not changed since the last backup, LARBACC links to the earlier copy instead of downloading it again (a file-system feature known as a hard link). Later runs are therefore fast, and five backups do not require five times the space. A run counts as a backup only once its complete file list has been written, so a crash or power failure cannot leave an incomplete folder that appears complete.</p><p>Sign-in uses PKCE, so no secret key is stored in the program. If LARBACC was closed when a backup was due, the backup runs at the next start, and a failed run is retried after 15 minutes, 1 hour and 4 hours.</p>
+  <p><strong>ACC Backup</strong> keeps dated copies of ACC and BIM 360 projects on a local or network drive. The user selects the projects and folders, a destination and a weekly time. ACC Backup downloads the latest version of every document and retains the most recent backups. The interface is available in German and English.</p><p><strong>Only changes are downloaded.</strong> If a document has not changed since the last backup, ACC Backup links to the earlier copy instead of downloading it again (a file-system feature known as a hard link). Later runs are therefore fast, and five backups do not require five times the space. A run counts as a backup only once its complete file list has been written, so a crash or power failure cannot leave an incomplete folder that appears complete.</p><p>Sign-in uses PKCE, so no secret key is stored in the program. If ACC Backup was closed when a backup was due, the backup runs at the next start, and a failed run is retried after 15 minutes, 1 hour and 4 hours.</p>
   <h2>Features</h2><ul class="features"><li>Choose ACC and BIM 360 projects, folders and a destination; the latest version of every document is saved under its ACC name</li><li>One dated folder per project and run, with a report and a list of every file and its ACC version</li><li>Unchanged documents are linked to the previous backup instead of downloaded again</li><li>Keeps the last few backups per project (5 by default) and never deletes anything after a run that had failures</li><li>A run only becomes a backup once its file list is written; failed and cancelled runs are kept and labelled</li><li>Include or leave out any folder; new folders follow the choice made for their parent folder</li><li>Weekly schedule on any days and time, running from the Windows notification area and optionally starting with Windows</li><li>Missed backups run at the next start; failed ones are retried after 15 minutes, 1 hour and 4 hours</li><li>Secure sign-in (PKCE) with no secret key shipped in the program; an optional key is stored encrypted for the Windows user</li><li>1 to 8 downloads at once, a test run that downloads nothing, and daily logs</li><li>German and English interface</li></ul>
   <h2>Glossary</h2><dl class="gloss"><div><dt>BIM</dt><dd>Building Information Modelling: designing a building as a shared 3D model that also holds data about every part, instead of separate drawings.</dd></div><div><dt>ACC / BIM 360</dt><dd>Autodesk Construction Cloud, an online platform where project teams store and share models and documents. BIM 360 is the older version.</dd></div></dl>
   
 </div></section>
 <section><div class="wrap">
   <div class="sec-head"><p class="eyebrow">Gallery</p><h2>Screenshots and demonstrations</h2></div>
-  <div class="gallery"><figure><a href="../img/larbacc-projects.png" target="_blank" rel="noopener"><img src="../img/larbacc-projects.png" alt="Projects and weekly schedule" loading="lazy"></a><figcaption><b>Projects and weekly schedule</b><span>Sample data.</span></figcaption></figure><figure><a href="../img/larbacc-folders.png" target="_blank" rel="noopener"><img src="../img/larbacc-folders.png" alt="Folder selection" loading="lazy"></a><figcaption><b>Folder selection</b></figcaption></figure><figure><a href="../img/larbacc-running.png" target="_blank" rel="noopener"><img src="../img/larbacc-running.png" alt="A backup running" loading="lazy"></a><figcaption><b>A backup running</b></figcaption></figure><figure><a href="../img/larbacc-first-run.png" target="_blank" rel="noopener"><img src="../img/larbacc-first-run.png" alt="First start" loading="lazy"></a><figcaption><b>First start</b></figcaption></figure><figure class="narrow"><a href="../img/larbacc-settings.png" target="_blank" rel="noopener"><img src="../img/larbacc-settings.png" alt="Settings" loading="lazy"></a><figcaption><b>Settings</b></figcaption></figure></div>
+  <div class="gallery"><figure><a href="../img/acc-backup-projects.png" target="_blank" rel="noopener"><img src="../img/acc-backup-projects.png" alt="Projects and weekly schedule" loading="lazy"></a><figcaption><b>Projects and weekly schedule</b><span>Sample data.</span></figcaption></figure><figure><a href="../img/acc-backup-folders.png" target="_blank" rel="noopener"><img src="../img/acc-backup-folders.png" alt="Folder selection" loading="lazy"></a><figcaption><b>Folder selection</b></figcaption></figure><figure><a href="../img/acc-backup-running.png" target="_blank" rel="noopener"><img src="../img/acc-backup-running.png" alt="A backup running" loading="lazy"></a><figcaption><b>A backup running</b></figcaption></figure><figure><a href="../img/acc-backup-first-run.png" target="_blank" rel="noopener"><img src="../img/acc-backup-first-run.png" alt="First start" loading="lazy"></a><figcaption><b>First start</b></figcaption></figure><figure class="narrow"><a href="../img/acc-backup-settings.png" target="_blank" rel="noopener"><img src="../img/acc-backup-settings.png" alt="Settings" loading="lazy"></a><figcaption><b>Settings</b></figcaption></figure></div>
 </div></section>
 <section><div class="wrap"><div class="pn">
-  <a href="rifadex.html"><small>← Previous project</small><b>RIFADEX</b></a>
+  <a href="interior-finishes.html"><small>← Previous project</small><b>Interior Finishes</b></a>
   <a class="next" href="family-validation.html"><small>Next project →</small><b>Family Validation</b></a>
 </div></div></section>
 </main>

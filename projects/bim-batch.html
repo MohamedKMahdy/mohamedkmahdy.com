@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BIM Batch | Mohamed K. Mahdy</title>
+<meta name="description" content="Runs model checks and exports across dozens of Revit models on a schedule, without anyone at the computer.">
+<meta property="og:title" content="BIM Batch | Mohamed K. Mahdy">
+<meta property="og:description" content="Runs model checks and exports across dozens of Revit models on a schedule, without anyone at the computer.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mohamedkmahdy.com/projects/bim-batch">
+<meta property="og:site_name" content="Mohamed K. Mahdy">
+<meta property="og:image" content="https://mohamedkmahdy.com/og/bim-batch.png?v=3978a458">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://mohamedkmahdy.com/og/bim-batch.png?v=3978a458">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='26' fill='%2309090b'/><text x='50' y='66' text-anchor='middle' font-size='44' font-weight='700' font-family='Inter,Arial,sans-serif' fill='%23fafafa'>MK</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<link rel="alternate" type="application/rss+xml" title="Notes by Mohamed K. Mahdy" href="https://mohamedkmahdy.com/feed.xml">
+<link rel="stylesheet" href="../style.css?v=2ffa58a6">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="../index.html"><i aria-hidden="true">MK</i><span>Mohamed K. Mahdy</span></a>
+  <nav aria-label="Main">
+    <a class="hide-sm" href="../index.html#services">Expertise</a>
+    <a href="../index.html#work">Work</a>
+    <a href="../index.html#notes">Notes</a>
+    <a class="hide-sm" href="../index.html#experience">Experience</a>
+    <a href="../index.html#about">About</a>
+    <a class="cta" href="../index.html#contact">Contact</a>
+  </nav>
+  <button id="tt" type="button" aria-label="Switch between light and dark theme">◐</button>
+</div></header>
+
+<main id="main">
+<div class="band"><div class="wrap read">
+  <a class="crumb" href="../index.html#work">← All projects</a>
+  <div class="phead">
+    <span class="tag">Revit 2023 to 2027 · batch</span>
+    <h1>BIM Batch</h1>
+    <p class="subtitle">Configure a job once and let it run every week.</p>
+    <ul class="chips" aria-label="Built with"><li>C#</li><li>.NET Framework 4.8 / .NET 8 / .NET 10</li><li>Revit API</li><li>WPF</li><li>Autodesk Platform Services</li><li>Windows Task Scheduler</li></ul>
+  </div>
+</div></div>
+<section><div class="wrap read pbody">
+  <div class="plain"><span>Overview</span><p>Architects and engineers keep their designs in Revit models. Each week, dozens of these models have to be opened, checked for errors and saved in the formats that other teams require. BIM Batch carries out this work automatically: the models and tasks are selected once, and every week the results are delivered to a single folder.</p></div>
+  <div class="result"><span>Result</span><strong>One codebase</strong> covers every Revit version from 2023 to 2027 and directs each model to an installed version of Revit that can open it. The interface is available in German and English, and installation is per user, without administrator rights.</div>
+  <h2>The problem</h2>
+  <p class="problem">Model checks and deliverable exports are widely recognised as important, yet running them manually across dozens of models every week takes more time than most teams have. In practice they are often skipped.</p>
+  <h2>The solution</h2>
+  <p><strong>BIM Batch</strong> is a desktop application with a companion add-in that runs inside Revit without a window. It performs seven tasks in a single pass: an Autodesk Model Checker run, IFC and NWC exports, PDF and DWG exports of the sheets, a model health report and a change report. It starts the appropriate installed version of Revit in the background, opens each model once, runs every selected task and closes the model without saving.</p><p>Models can be taken from four sources: selected models in Autodesk Construction Cloud (ACC), an entire ACC folder, a local or network folder, or a fixed list of files. Folders are read again at every run, so newly added models are included, and the results can be uploaded back to ACC.</p><p><strong>Repeat runs are inexpensive.</strong> A model that has not changed since the last successful run is skipped. All output is written to a single folder, together with a history workbook for Excel and Power BI and an optional Teams message after each run.</p><p>The same codebase also produces three single-task applications, each with its own name and icon, for teams that need only one function: <strong>Bulk Model Checker</strong>, <strong>IFC Bulk Export</strong> and <strong>NWC Bulk Export</strong>.</p><p>I first built scheduled checks and exports of this kind in 2023. BIM Batch is the consolidated version, designed so that nothing depends on a person remembering to run it.</p>
+  <h2>Features</h2><ul class="features"><li>Seven tasks in one pass: Autodesk Model Checker, IFC export, NWC export for Navisworks, PDF and DWG export of sheets, a model health report and a change report</li><li>Each model is opened once for all tasks and closed again without saving</li><li>Four kinds of source: selected ACC models, an ACC folder, a local or network folder, or a fixed list of Revit files</li><li>Folders are read again at every run, so models added later are included</li><li>Works with every installed Revit from 2023 to 2027; each model opens in a version that can read it, and older models are upgraded in memory only, never saved</li><li>Weekly runs through the Windows Task Scheduler, even while the program is closed</li><li>Works with ACC in both directions: models are downloaded for the run, and the exported files and reports can be uploaded back</li><li>Skips a model when its source, settings and results have not changed since the last successful run</li><li>PDF of every sheet, of a sheet set saved in the model, or of sheets whose numbers match a pattern; one PDF per sheet or one per model</li><li>Model health report per model: warnings, families, CAD imports, links, views, groups and rooms</li><li>Change report: the elements added, deleted and changed since the last report</li><li>A time limit per model: a model that hangs is closed and reported while the others carry on</li><li>One output folder (a SharePoint library synced with OneDrive works), a history workbook for Excel and Power BI, and a Teams message after each run</li><li>Three single-task versions from the same code, each with its own name and icon: Bulk Model Checker, IFC Bulk Export and NWC Bulk Export</li><li>German and English interface; installs per user without admin rights</li></ul>
+  <h2>Glossary</h2><dl class="gloss"><div><dt>BIM</dt><dd>Building Information Modelling: designing a building as a shared 3D model that also holds data about every part, instead of separate drawings.</dd></div><div><dt>Revit</dt><dd>Autodesk's main software for designing buildings as BIM models. It is widely used by architects and engineers.</dd></div><div><dt>Navisworks</dt><dd>Autodesk software that combines the models of all disciplines into one and checks them for clashes.</dd></div><div><dt>Add-in</dt><dd>A small program that runs inside another program, here inside Revit or Navisworks, and adds new buttons and features to it.</dd></div><div><dt>Family</dt><dd>A reusable Revit component, such as a door, a window, a chair or a light fitting.</dd></div><div><dt>Sheet</dt><dd>A drawing page in Revit, ready to print or send out.</dd></div><div><dt>ACC / BIM 360</dt><dd>Autodesk Construction Cloud, an online platform where project teams store and share models and documents. BIM 360 is the older version.</dd></div><div><dt>IFC</dt><dd>An open file format for building models that any BIM software can read. It is maintained by buildingSMART.</dd></div><div><dt>NWC</dt><dd>The file format Navisworks uses to bring in Revit models.</dd></div><div><dt>DWG</dt><dd>The standard file format for CAD drawings.</dd></div><div><dt>Autodesk Model Checker</dt><dd>A free Autodesk tool that checks Revit models against a list of rules and writes a report.</dd></div><div><dt>Power BI</dt><dd>Microsoft's software for interactive charts and dashboards.</dd></div></dl>
+  
+</div></section>
+<section><div class="wrap">
+  <div class="sec-head"><p class="eyebrow">Gallery</p><h2>Screenshots and demonstrations</h2></div>
+  <div class="gallery"><figure><a href="../img/bim-batch-jobs.png" target="_blank" rel="noopener"><img src="../img/bim-batch-jobs.png" alt="A weekly job" loading="lazy"></a><figcaption><b>A weekly job</b><span>Models from ACC, the Revit version each one opens in, and the tasks to run. Sample data.</span></figcaption></figure><figure><a href="../img/bim-batch-tasks.png" target="_blank" rel="noopener"><img src="../img/bim-batch-tasks.png" alt="Seven tasks, one pass" loading="lazy"></a><figcaption><b>Seven tasks, one pass</b></figcaption></figure><figure><a href="../img/bim-batch-pdf.png" target="_blank" rel="noopener"><img src="../img/bim-batch-pdf.png" alt="PDF export of the sheets" loading="lazy"></a><figcaption><b>PDF export of the sheets</b></figcaption></figure><figure><a href="../img/bim-batch-reports.png" target="_blank" rel="noopener"><img src="../img/bim-batch-reports.png" alt="Model health and change reports" loading="lazy"></a><figcaption><b>Model health and change reports</b></figcaption></figure><figure><a href="../img/bim-batch-schedule.png" target="_blank" rel="noopener"><img src="../img/bim-batch-schedule.png" alt="Output, history, Teams and the weekly schedule" loading="lazy"></a><figcaption><b>Output, history, Teams and the weekly schedule</b></figcaption></figure><figure><a href="../img/bim-batch-results.png" target="_blank" rel="noopener"><img src="../img/bim-batch-results.png" alt="Results per model and task" loading="lazy"></a><figcaption><b>Results per model and task</b><span>Skipped models state why they were skipped; failures state what needs to be corrected.</span></figcaption></figure><figure><a href="../img/bim-batch-mark.png" target="_blank" rel="noopener"><img src="../img/bim-batch-mark.png" alt="The BIM Batch mark" loading="lazy"></a><figcaption><b>The BIM Batch mark</b><span>A line cube with a green moon, on dark and light.</span></figcaption></figure><figure><a href="../img/bim-batch-editions.png" target="_blank" rel="noopener"><img src="../img/bim-batch-editions.png" alt="The edition icons" loading="lazy"></a><figcaption><b>The edition icons</b><span>BIM Batch, Bulk Model Checker, IFC Bulk Export and NWC Bulk Export.</span></figcaption></figure><figure><a href="../img/bim-batch-edition-modelcheck.png" target="_blank" rel="noopener"><img src="../img/bim-batch-edition-modelcheck.png" alt="Bulk Model Checker edition" loading="lazy"></a><figcaption><b>Bulk Model Checker edition</b></figcaption></figure><figure><a href="../img/bim-batch-edition-ifc.png" target="_blank" rel="noopener"><img src="../img/bim-batch-edition-ifc.png" alt="IFC Bulk Export edition" loading="lazy"></a><figcaption><b>IFC Bulk Export edition</b></figcaption></figure><figure><a href="../img/bim-batch-edition-nwc.png" target="_blank" rel="noopener"><img src="../img/bim-batch-edition-nwc.png" alt="NWC Bulk Export edition" loading="lazy"></a><figcaption><b>NWC Bulk Export edition</b></figcaption></figure><figure><a href="../img/image9.png" target="_blank" rel="noopener"><img src="../img/image9.png" alt="An earlier version: scheduled model checks" loading="lazy"></a><figcaption><b>An earlier version: scheduled model checks</b></figcaption></figure><figure><a href="../img/image7.png" target="_blank" rel="noopener"><img src="../img/image7.png" alt="An earlier version: nightly exports" loading="lazy"></a><figcaption><b>An earlier version: nightly exports</b></figcaption></figure></div>
+</div></section>
+<section><div class="wrap"><div class="pn">
+  <a href="curtain-panels.html"><small>← Previous project</small><b>Curtain Panel Suite</b></a>
+  <a class="next" href="aps-raumbuch.html"><small>Next project →</small><b>Raumbuch</b></a>
+</div></div></section>
+</main>
+
+<section id="contact"><div class="wrap"><div class="contact">
+  <p class="eyebrow">Contact</p>
+  <h2>Get in touch</h2>
+  <p>I welcome conversations about BIM automation, openBIM and applied AI in architecture, engineering and
+  construction, as well as invitations to speak or collaborate.</p>
+  <div class="links">
+    <a class="btn primary" href="mailto:mohamedkmahdy@outlook.com">Email</a>
+    <a class="btn" href="https://www.linkedin.com/in/mohamedkmahdy/" rel="noopener">LinkedIn</a>
+    <a class="btn" href="https://github.com/MohamedKMahdy" rel="noopener">GitHub</a>
+  </div>
+</div></div></section>
+<footer><div class="wrap">
+  <span>© 2026 Mohamed K. Mahdy · Munich, Germany</span>
+  <span>No trackers, no cookies.</span>
+</div></footer>
+<script>(function(){var r=document.documentElement,t=document.getElementById('tt'),s=null;
+try{s=localStorage.getItem('theme')}catch(e){}
+if(s)r.setAttribute('data-theme',s);
+t.addEventListener('click',function(){var c=r.getAttribute('data-theme');
+if(!c)c='light';
+var n=c==='dark'?'light':'dark';r.setAttribute('data-theme',n);
+try{localStorage.setItem('theme',n)}catch(e){}});})();</script>
+</body></html>
