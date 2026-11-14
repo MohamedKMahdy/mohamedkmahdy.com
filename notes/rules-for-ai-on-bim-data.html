@@ -3,18 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The rules I follow when I put a language model on BIM data | Mohamed K. Mahdy</title>
-<meta name="description" content="Six rules from building an assistant that answers questions about building models. Most of them are about what the model isn&#x27;t allowed to do.">
-<meta property="og:title" content="The rules I follow when I put a language model on BIM data | Mohamed K. Mahdy">
-<meta property="og:description" content="Six rules from building an assistant that answers questions about building models. Most of them are about what the model isn&#x27;t allowed to do.">
+<title>Six rules for applying language models to BIM data | Mohamed K. Mahdy</title>
+<meta name="description" content="Six rules derived from building an assistant that answers questions about building models. Most of them limit what the model is permitted to do.">
+<meta property="og:title" content="Six rules for applying language models to BIM data | Mohamed K. Mahdy">
+<meta property="og:description" content="Six rules derived from building an assistant that answers questions about building models. Most of them limit what the model is permitted to do.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://mohamedkmahdy.com/notes/rules-for-ai-on-bim-data">
 <meta property="og:site_name" content="Mohamed K. Mahdy">
-<meta property="og:image" content="https://mohamedkmahdy.com/og/note-rules-for-ai-on-bim-data.png?v=8bb3d0a4">
+<meta property="og:image" content="https://mohamedkmahdy.com/og/note-rules-for-ai-on-bim-data.png?v=458bb608">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://mohamedkmahdy.com/og/note-rules-for-ai-on-bim-data.png?v=8bb3d0a4">
+<meta name="twitter:image" content="https://mohamedkmahdy.com/og/note-rules-for-ai-on-bim-data.png?v=458bb608">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='26' fill='%2309090b'/><text x='50' y='66' text-anchor='middle' font-size='44' font-weight='700' font-family='Inter,Arial,sans-serif' fill='%23fafafa'>MK</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,31 +42,30 @@
   <a class="crumb" href="../index.html#notes">← All notes</a>
   <div class="phead">
     <span class="tag">Note · <time datetime="2026-11-11">11 November 2026</time></span>
-    <h1 style="font-size:clamp(30px,4.6vw,44px);line-height:1.12">The rules I follow when I put a language model on BIM data</h1>
-    <p class="subtitle">Six rules from building an assistant that answers questions about building models. Most of them are about what the model isn't allowed to do.</p>
+    <h1 style="font-size:clamp(30px,4.6vw,44px);line-height:1.12">Six rules for applying language models to BIM data</h1>
+    <p class="subtitle">Six rules derived from building an assistant that answers questions about building models. Most of them limit what the model is permitted to do.</p>
   </div>
 </div></div>
 <section><div class="wrap read pbody nbody">
-  <p>Most demos of AI on BIM data look the same. Someone types a question, an answer appears, everyone nods. Nobody asks how you'd know if the answer was wrong.</p><p>On a real project that's the only question that matters. A wrong door count goes into a tender. A wrong fire rating goes into a report that someone signs. So when I rebuilt ARVENT in 2026, three years after I first connected Speckle to a language model, I wrote down the rules it had to follow. I use the same ones everywhere now.</p><h2>1. The model never does the arithmetic</h2><p>Counting, summing and comparing are done by code. A language model asked to count doors is guessing at a number that a query can simply return.</p><h2>2. The model never writes the query</h2><p>It fills in a structured query plan, and the plan can only use field names that exist in the data. Code checks the plan, repairs what it can and runs it. The model chooses what to ask for. It doesn't get to decide how.</p><h2>3. Every answer shows its working</h2><p>Each reply includes the exact query and the result it came from, and a link that shows those elements in the model. Anyone can check an answer without having to trust me or the model.</p><h2>4. Missing data is reported, not filled in</h2><p>If a door has no fire rating, the answer says so. It sounds obvious. It's also the first thing a language model gets wrong when it's left alone, because a plausible value is always available.</p><h2>5. Nothing takes effect until a person approves it</h2><p>ARVENT can read a specification and propose rules to check the model against. Those rules do nothing until someone approves them. The same goes for anything else AI suggests in my tools: a person signs off.</p><h2>6. Project data stays where it is</h2><p>ARVENT runs on a local Llama model through Ollama, so model data and project documents never leave the machine. On many projects that decides whether a tool is allowed at all.</p><h2>What this leaves for the model</h2><p>Less than you'd think, and that's fine. It turns a question in plain language into a plan, and it turns a result back into a sentence. Those are the two things it's good at.</p><p>What I learned in 2023 still holds. The model was never the hard part. Getting clean, structured data out of the design tools is.</p>
-  <p class="related">The tools this comes from: <a href="../projects/speckle-llm.html">ARVENT</a></p>
+  <p>Demonstrations of AI on BIM data tend to follow the same pattern: a question is typed, an answer appears, and the answer is accepted. The more important question is rarely asked: how would anyone know if the answer were wrong?</p><p>On a live project that is the question that matters. An incorrect door count can enter a tender, and an incorrect fire rating can enter a report that someone signs. When I rebuilt ARVENT in 2026, three years after first connecting Speckle to a language model, I set out the rules it had to follow. I now apply the same rules to every project of this kind.</p><h2>1. The model does not perform calculations</h2><p>Counting, summing and comparing are done by code. A language model asked to count doors produces an estimate of a number that a query can return exactly.</p><h2>2. The model does not write the query</h2><p>The model completes a structured query plan that may only use field names present in the data. Code validates the plan, corrects it where possible and executes it. The model decides what to ask for; it does not decide how the data is retrieved.</p><h2>3. Every answer shows its working</h2><p>Each reply includes the exact query, the result it returned and a link that displays the relevant elements in the model. An answer can therefore be verified without relying on its author or on the model.</p><h2>4. Missing data is reported, not supplied</h2><p>If a door has no fire rating, the answer states that the value is missing. Language models tend to supply a plausible value when one is absent, so this rule is enforced in code.</p><h2>5. Nothing takes effect without approval</h2><p>ARVENT can read a specification and propose rules against which the model is checked. Those rules remain inactive until a person approves them. The same applies to any other AI-generated suggestion in my tools.</p><h2>6. Project data remains on the machine</h2><p>ARVENT runs on a local Llama model through Ollama, so model data and project documents do not leave the machine. On many projects this determines whether such a tool may be used at all.</p><h2>The role left for the model</h2><p>The remaining role is narrow and well suited to a language model: translating a question in plain language into a query plan, and translating a result into a sentence.</p><p>The conclusion I reached in 2023 still holds. The language model was never the difficult part; obtaining clean, structured data from the design tools is.</p>
+  <p class="related">Related projects: <a href="../projects/speckle-llm.html">ARVENT</a></p>
 </div></section>
 </main>
 
 <section id="contact"><div class="wrap"><div class="contact">
   <p class="eyebrow">Contact</p>
-  <h2>Let's talk</h2>
-  <p>If your team loses hours to model checks, exports, sorting clashes or copying data out of Revit by hand,
-  I'd like to hear about it. I'm also always up for a conversation about AEC software, openBIM and AI in
-  construction.</p>
+  <h2>Get in touch</h2>
+  <p>I welcome conversations about BIM automation, openBIM and applied AI in architecture, engineering and
+  construction, as well as invitations to speak or collaborate.</p>
   <div class="links">
-    <a class="btn primary" href="mailto:mohamedkmahdy@outlook.com">Email me</a>
+    <a class="btn primary" href="mailto:mohamedkmahdy@outlook.com">Email</a>
     <a class="btn" href="https://www.linkedin.com/in/mohamedkmahdy/" rel="noopener">LinkedIn</a>
     <a class="btn" href="https://github.com/MohamedKMahdy" rel="noopener">GitHub</a>
   </div>
 </div></div></section>
 <footer><div class="wrap">
-  <span>Mohamed K. Mahdy · Munich, Germany</span>
-  <span>A small static site. No trackers, no cookies.</span>
+  <span>© 2026 Mohamed K. Mahdy · Munich, Germany</span>
+  <span>No trackers, no cookies.</span>
 </div></footer>
 <script>(function(){var r=document.documentElement,t=document.getElementById('tt'),s=null;
 try{s=localStorage.getItem('theme')}catch(e){}

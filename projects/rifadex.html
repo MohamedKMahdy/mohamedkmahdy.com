@@ -4,17 +4,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>RIFADEX | Mohamed K. Mahdy</title>
-<meta name="description" content="Draws the wall, floor, skirting and ceiling finishes of every room in Revit, and keeps them right when the design changes.">
+<meta name="description" content="Models the wall, floor, skirting and ceiling finishes of every room in Revit and keeps them correct when the design changes.">
 <meta property="og:title" content="RIFADEX | Mohamed K. Mahdy">
-<meta property="og:description" content="Draws the wall, floor, skirting and ceiling finishes of every room in Revit, and keeps them right when the design changes.">
+<meta property="og:description" content="Models the wall, floor, skirting and ceiling finishes of every room in Revit and keeps them correct when the design changes.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://mohamedkmahdy.com/projects/rifadex">
 <meta property="og:site_name" content="Mohamed K. Mahdy">
-<meta property="og:image" content="https://mohamedkmahdy.com/og/rifadex.png?v=79b86750">
+<meta property="og:image" content="https://mohamedkmahdy.com/og/rifadex.png?v=a470f1c5">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://mohamedkmahdy.com/og/rifadex.png?v=79b86750">
+<meta name="twitter:image" content="https://mohamedkmahdy.com/og/rifadex.png?v=a470f1c5">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='26' fill='%2309090b'/><text x='50' y='66' text-anchor='middle' font-size='44' font-weight='700' font-family='Inter,Arial,sans-serif' fill='%23fafafa'>MK</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,27 +39,27 @@
 
 <main id="main">
 <div class="band"><div class="wrap read">
-  <a class="crumb" href="../index.html#work">← All work</a>
+  <a class="crumb" href="../index.html#work">← All projects</a>
   <div class="phead">
     <span class="tag">Revit · interior finishes</span>
     <h1>RIFADEX</h1>
-    <p class="subtitle">Finish walls, floors, skirting and ceilings that follow the rooms.</p>
+    <p class="subtitle">Wall, floor, skirting and ceiling finishes that follow the rooms.</p>
     <ul class="chips" aria-label="Built with"><li>C#</li><li>Revit API 2024 to 2027</li><li>.NET Framework 4.8 / .NET 8 / .NET 10</li><li>WPF</li><li>extensible storage</li><li>no third-party libraries</li></ul>
   </div>
 </div></div>
 <section><div class="wrap read pbody">
-  <div class="plain"><span>In plain words</span><p>Every room in a building gets finishes: plaster or tiles on the walls, a floor covering, skirting boards and a ceiling. In a 3D model each one has to be drawn by hand, and redrawn whenever a room changes. RIFADEX lets you pick the finishes per room, then draws and updates them automatically.</p></div>
-  <div class="result"><span>Result</span>Tested inside Revit from start to finish, 57 checks in Revit 2026: drawing, redrawing, hand edits, door openings, a moved and rotated linked model, and an Excel round trip. <strong>One codebase for Revit 2024 to 2027</strong>, with no third-party libraries.</div>
+  <div class="plain"><span>Overview</span><p>Every room in a building has finishes: plaster or tiles on the walls, a floor covering, skirting boards and a ceiling. In a 3D model each of these has to be modelled manually and remodelled whenever a room changes. RIFADEX allows the finishes to be selected per room and then models and updates them automatically.</p></div>
+  <div class="result"><span>Result</span>Tested end to end inside Revit, with 57 checks in Revit 2026: modelling, remodelling, manual edits, door openings, a moved and rotated linked model, and an Excel round trip. <strong>One codebase for Revit 2024 to 2027</strong>, with no third-party libraries.</div>
   <h2>The problem</h2>
-  <p class="problem">Modelling interior finishes by hand, room by room, is slow, and every design change leaves finishes that no longer fit the room.</p>
-  <h2>What it does</h2>
-  <p>You pick a wall, floor, skirting and ceiling finish for each room, one at a time or many at once, in this model or in a linked architect's model. RIFADEX draws a finish wall along each side of the room, a floor with cut-outs for columns and shafts, skirting that stops at doors, and a ceiling at the room height. Door and window openings in the walls behind get cut through the finish walls. Lengths are shown and typed in the project's own units.</p><p><strong>Plan, preview, apply.</strong> You see every change before anything is drawn. Run it again and it updates the finishes that are already there instead of drawing new ones, so tags and schedules keep working: a new code changes the type, a room that changed shape gets redrawn, openings follow moved doors, and a wall moved by up to 500 mm takes its finish with it. A type you changed by hand stays, so a feature wall survives. The linked model is never touched.</p><p>Finish types and materials are edited in a table or in Excel, where a new row makes a new type, with an optional naming convention. One settings file holds the company standard, so any template works and nothing has to be added to a project first.</p><p><strong>RIFADEX</strong> (Revit Interior Finishes: Assignment, Drawing and Excel eXchange) rebuilds the in-house finishes tools I wrote years ago as one company-neutral package.</p>
-  <h2>Features</h2><ul class="features"><li>Choose wall, floor, skirting and ceiling finishes per room, in this model or a linked model</li><li>Set finishes for many rooms at once; filter by floor, by search or by any room property; group rooms by name</li><li>Draws finish walls along the room edges, a floor per room with cut-outs, skirting that stops at doors, and a ceiling at the room height</li><li>Cuts door and window openings through the finish walls from the walls behind, linked or not</li><li>Plan, preview, apply: every change is shown before anything is drawn</li><li>Running it again updates existing finishes in place, keeps hand edits, and does not bring back skirting you deleted</li><li>A wall moved by up to 500 mm takes its finish wall with it, keeping the same element and its tags; walls are matched by the side that faces the room, so opposite walls of a narrow room are never mixed up</li><li>Revit warnings during updates are handled and logged instead of popping up</li><li>Height and floor offset can be set per room; lengths in the project's units</li><li>Remove drawn finishes per room and surface; a count of what was drawn in each room</li><li>Finish types and materials in a table or in Excel; new rows create new types</li><li>Optional naming convention built from parts you choose</li><li>One settings file holds the company standard and can be shared from a server; any template works</li><li>No extra project parameters and no third-party libraries; Revit 2024 to 2027 from one codebase</li></ul>
-  <h2>Terms on this page</h2><dl class="gloss"><div><dt>Revit</dt><dd>Autodesk's main software for designing buildings as BIM models. Most architects and engineers use it.</dd></div><div><dt>Linked model</dt><dd>A model from another file, often from another team, shown inside your model for reference but kept separate from it.</dd></div><div><dt>Schedule</dt><dd>A table in Revit that lists elements and their data, for example every door with its size.</dd></div></dl>
+  <p class="problem">Modelling interior finishes manually, room by room, is slow, and every design change leaves finishes that no longer fit the room.</p>
+  <h2>The solution</h2>
+  <p>A wall, floor, skirting and ceiling finish is selected for each room, individually or for many rooms at once, in the current model or in a linked architect's model. RIFADEX creates a finish wall along each side of the room, a floor with cut-outs for columns and shafts, skirting that stops at doors, and a ceiling at room height. Door and window openings in the walls behind are cut through the finish walls. Lengths are displayed and entered in the project's own units.</p><p><strong>Plan, preview, apply.</strong> Every change is shown before anything is modelled. On a repeat run, existing finishes are updated and no duplicates are created, so tags and schedules remain valid: a new code changes the type, a room that has changed shape is remodelled, openings follow relocated doors, and a wall moved by up to 500 mm keeps its finish. A type that was changed manually is retained, so a feature wall is preserved. The linked model is never modified.</p><p>Finish types and materials are edited in a table or in Excel, where a new row creates a new type, with an optional naming convention. A single settings file holds the company standard, so any template can be used and nothing has to be added to a project in advance.</p><p><strong>RIFADEX</strong> (Revit Interior Finishes: Assignment, Drawing and Excel eXchange) consolidates the finishes tools I developed in earlier years into a single, company-neutral package.</p>
+  <h2>Features</h2><ul class="features"><li>Choose wall, floor, skirting and ceiling finishes per room, in this model or a linked model</li><li>Set finishes for many rooms at once; filter by floor, by search or by any room property; group rooms by name</li><li>Draws finish walls along the room edges, a floor per room with cut-outs, skirting that stops at doors, and a ceiling at the room height</li><li>Cuts door and window openings through the finish walls from the walls behind, linked or not</li><li>Plan, preview, apply: every change is shown before anything is drawn</li><li>A repeat run updates existing finishes in place, keeps manual edits, and does not restore skirting that was deleted</li><li>A wall moved by up to 500 mm takes its finish wall with it, keeping the same element and its tags; walls are matched by the side that faces the room, so opposite walls of a narrow room are never mixed up</li><li>Revit warnings during updates are handled and logged instead of popping up</li><li>Height and floor offset can be set per room; lengths in the project's units</li><li>Remove drawn finishes per room and surface; a count of what was drawn in each room</li><li>Finish types and materials in a table or in Excel; new rows create new types</li><li>Optional naming convention assembled from selectable parts</li><li>One settings file holds the company standard and can be shared from a server; any template works</li><li>No extra project parameters and no third-party libraries; Revit 2024 to 2027 from one codebase</li></ul>
+  <h2>Glossary</h2><dl class="gloss"><div><dt>Revit</dt><dd>Autodesk's main software for designing buildings as BIM models. It is widely used by architects and engineers.</dd></div><div><dt>Linked model</dt><dd>A model from another file, often from another team, shown inside the current model for reference but kept separate from it.</dd></div></dl>
   
 </div></section>
 <section><div class="wrap">
-  <div class="sec-head"><p class="eyebrow">See it</p><h2>Screenshots &amp; demos</h2></div>
+  <div class="sec-head"><p class="eyebrow">Gallery</p><h2>Screenshots and demonstrations</h2></div>
   <div class="gallery"><figure><a href="../img/rifadex-room-finishes.png" target="_blank" rel="noopener"><img src="../img/rifadex-room-finishes.png" alt="Room Finishes" loading="lazy"></a><figcaption><b>Room Finishes</b><span>Codes per room from a linked model, then save and draw. Captured in Revit 2026.</span></figcaption></figure><figure class="narrow"><a href="../img/rifadex-ribbon.png" target="_blank" rel="noopener"><img src="../img/rifadex-ribbon.png" alt="The RIFADEX ribbon panel" loading="lazy"></a><figcaption><b>The RIFADEX ribbon panel</b><span>Four tools: Room Finishes, Finish Types, Finish Materials and Settings.</span></figcaption></figure><figure><a href="../img/rifadex-finish-types.png" target="_blank" rel="noopener"><img src="../img/rifadex-finish-types.png" alt="Finish Types" loading="lazy"></a><figcaption><b>Finish Types</b><span>Edit types here or in Excel; a row marked NEW creates a new type.</span></figcaption></figure><figure><a href="../img/rifadex-materials.png" target="_blank" rel="noopener"><img src="../img/rifadex-materials.png" alt="Finish Materials" loading="lazy"></a><figcaption><b>Finish Materials</b><span>The same table and Excel round trip for materials.</span></figcaption></figure><figure><a href="../img/rifadex-settings.png" target="_blank" rel="noopener"><img src="../img/rifadex-settings.png" alt="Settings" loading="lazy"></a><figcaption><b>Settings</b><span>The company standard: finish parameters, types, materials, naming and Excel.</span></figcaption></figure><figure><video src="../video/finishes-drawer.mp4" controls muted playsinline preload="metadata"></video><figcaption><b>An earlier version: drawing finishes</b><span>Reads room finishes and draws the walls, floors and skirting.</span></figcaption></figure><figure><video src="../video/finishes-manager.mp4" controls muted playsinline preload="metadata"></video><figcaption><b>An earlier version: finish types</b><span>Finish types exported, edited in Excel and written back to the model.</span></figcaption></figure><figure><video src="../video/materials-manager.mp4" controls muted playsinline preload="metadata"></video><figcaption><b>An earlier version: finish materials</b><span>The same round trip for finish materials.</span></figcaption></figure></div>
 </div></section>
 <section><div class="wrap"><div class="pn">
@@ -70,19 +70,18 @@
 
 <section id="contact"><div class="wrap"><div class="contact">
   <p class="eyebrow">Contact</p>
-  <h2>Let's talk</h2>
-  <p>If your team loses hours to model checks, exports, sorting clashes or copying data out of Revit by hand,
-  I'd like to hear about it. I'm also always up for a conversation about AEC software, openBIM and AI in
-  construction.</p>
+  <h2>Get in touch</h2>
+  <p>I welcome conversations about BIM automation, openBIM and applied AI in architecture, engineering and
+  construction, as well as invitations to speak or collaborate.</p>
   <div class="links">
-    <a class="btn primary" href="mailto:mohamedkmahdy@outlook.com">Email me</a>
+    <a class="btn primary" href="mailto:mohamedkmahdy@outlook.com">Email</a>
     <a class="btn" href="https://www.linkedin.com/in/mohamedkmahdy/" rel="noopener">LinkedIn</a>
     <a class="btn" href="https://github.com/MohamedKMahdy" rel="noopener">GitHub</a>
   </div>
 </div></div></section>
 <footer><div class="wrap">
-  <span>Mohamed K. Mahdy · Munich, Germany</span>
-  <span>A small static site. No trackers, no cookies.</span>
+  <span>© 2026 Mohamed K. Mahdy · Munich, Germany</span>
+  <span>No trackers, no cookies.</span>
 </div></footer>
 <script>(function(){var r=document.documentElement,t=document.getElementById('tt'),s=null;
 try{s=localStorage.getItem('theme')}catch(e){}

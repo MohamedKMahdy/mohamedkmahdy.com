@@ -4,17 +4,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ARVENT | Mohamed K. Mahdy</title>
-<meta name="description" content="Answers questions about a 3D building model in plain language, right in the model's comment threads. It runs on a local AI model, so the data stays on the machine.">
+<meta name="description" content="Answers questions about a 3D building model in plain language, directly in the model's comment threads. It runs on a local AI model, so project data remains on the machine.">
 <meta property="og:title" content="ARVENT | Mohamed K. Mahdy">
-<meta property="og:description" content="Answers questions about a 3D building model in plain language, right in the model's comment threads. It runs on a local AI model, so the data stays on the machine.">
+<meta property="og:description" content="Answers questions about a 3D building model in plain language, directly in the model's comment threads. It runs on a local AI model, so project data remains on the machine.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://mohamedkmahdy.com/projects/speckle-llm">
 <meta property="og:site_name" content="Mohamed K. Mahdy">
-<meta property="og:image" content="https://mohamedkmahdy.com/og/speckle-llm.png?v=6a816ffb">
+<meta property="og:image" content="https://mohamedkmahdy.com/og/speckle-llm.png?v=f5ee13b8">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://mohamedkmahdy.com/og/speckle-llm.png?v=6a816ffb">
+<meta name="twitter:image" content="https://mohamedkmahdy.com/og/speckle-llm.png?v=f5ee13b8">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='26' fill='%2309090b'/><text x='50' y='66' text-anchor='middle' font-size='44' font-weight='700' font-family='Inter,Arial,sans-serif' fill='%23fafafa'>MK</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,27 +39,27 @@
 
 <main id="main">
 <div class="band"><div class="wrap read">
-  <a class="crumb" href="../index.html#work">← All work</a>
+  <a class="crumb" href="../index.html#work">← All projects</a>
   <div class="phead">
     <span class="tag">Speckle · local AI</span>
     <h1>ARVENT</h1>
-    <p class="subtitle">I connected AI to building models before it was a trend.</p>
+    <p class="subtitle">Natural-language questions on building models, since 2023.</p>
     <ul class="chips" aria-label="Built with"><li>Python</li><li>FastAPI</li><li>Speckle (GraphQL, webhooks, specklepy)</li><li>Ollama</li><li>Llama 3.1</li><li>SQLite</li></ul>
   </div>
 </div></div>
 <section><div class="wrap read pbody">
-  <div class="plain"><span>In plain words</span><p>Most people on a building project never open the 3D model, but they still have questions about it. ARVENT lets them ask in a comment, for example how many doors have no fire rating, and replies with the answer, the exact data behind it and a link that shows those parts in the model. It also checks each new version of the model against the project's written requirements.</p></div>
-  <div class="result"><span>Result</span>What I learned in 2023 still holds: <strong>the AI was never the hard part.</strong> Getting clean, structured data out of the design tools is.</div>
+  <div class="plain"><span>Overview</span><p>Most people on a building project never open the 3D model, yet they still have questions about it. ARVENT allows them to ask in a comment, for example how many doors have no fire rating, and replies with the answer, the exact data behind it and a link that shows the relevant elements in the model. It also checks each new version of the model against the project's written requirements.</p></div>
+  <div class="result"><span>Result</span>The conclusion from 2023 still holds: <strong>the language model was never the difficult part.</strong> Obtaining clean, structured data from the design tools is.</div>
   <h2>The problem</h2>
-  <p class="problem">Most people on a project never open the model, but they still have questions about it: what this panel's insulation value is, how many doors have no fire rating, whether the latest version still meets the specification.</p>
-  <h2>What it does</h2>
-  <p>In 2023 I connected Speckle, an open platform for sharing 3D building models, to a large language model, so a project team could ask a model questions in plain language. <strong>ARVENT</strong> (Assistant for Requirements, Verification and Element Notes in Threads) is the 2026 rebuild. It runs on a <strong>local Llama model through Ollama</strong>, so model data and project documents never leave the machine.</p><p>It lives in Speckle's comment threads. Select an element and ask about it, and it answers from the element's properties and any attached specification PDF, with page references. Ask about the whole model and it answers that too. Every time a new version comes in, it checks it against rules taken from the specification. Each failing rule gets its own thread that highlights the elements, and ARVENT replies there once a later version fixes them.</p><p><strong>The language model never does the maths and never writes the database query.</strong> It only fills in a structured query plan that's limited to real field names. Code checks and fixes that plan, runs it, and shows the exact query and result in every reply. The model can suggest rules from the specification, but nothing runs until a person approves it.</p><p>Along the way I also built a custom connector between Speckle and Revit for another client.</p>
-  <h2>Features</h2><ul class="features"><li>Answers questions about a selected element from its properties and any attached specification PDF, with page references</li><li>Answers questions about the whole model, such as counts, totals and breakdowns per floor</li><li>Keeps every element of the latest version of each model in a local SQLite database</li><li>The language model only fills in a structured query plan; code checks and corrects it and runs it as a safe database query</li><li>Each reply shows the exact query and result, plus a link that opens exactly those elements in the Speckle viewer</li><li>Suggests rules from specification PDFs; a person approves them before they run</li><li>Checks every new model version and opens one pinned thread per failing rule, highlighting the elements in the viewer</li><li>Replies "Resolved" when a later version fixes the problem</li><li>Missing values are reported as missing, never invented, and page references are checked against the documents</li><li>Runs on a local Llama model through Ollama, so model data and documents never leave the machine</li><li>Works with both Speckle data formats (version 2 Revit parameters and version 3 properties)</li><li>Webhook server with signature checks and protection against duplicate retries; a command line for indexing, questions and checks; Docker setup with GPU support</li></ul>
-  <h2>Terms on this page</h2><dl class="gloss"><div><dt>Revit</dt><dd>Autodesk's main software for designing buildings as BIM models. Most architects and engineers use it.</dd></div><div><dt>Speckle</dt><dd>An open platform for sharing and viewing 3D building models online.</dd></div><div><dt>Language model</dt><dd>An AI model that reads and writes text, like the one behind ChatGPT. Llama is a free one that can run on your own computer.</dd></div></dl>
+  <p class="problem">Most people on a project never open the model, yet they still have questions about it: the insulation value of a panel, the number of doors without a fire rating, or whether the latest version still meets the specification.</p>
+  <h2>The solution</h2>
+  <p>In 2023 I connected Speckle, an open platform for sharing 3D building models, to a large language model so that a project team could query a model in plain language. <strong>ARVENT</strong> (Assistant for Requirements, Verification and Element Notes in Threads) is the 2026 rebuild. It runs on a <strong>local Llama model through Ollama</strong>, so model data and project documents never leave the machine.</p><p>ARVENT operates within Speckle's comment threads. A question about a selected element is answered from the element's properties and any attached specification PDF, with page references, and questions about the whole model are answered in the same way. Each new version is checked against rules derived from the specification. Every failing rule receives its own thread highlighting the affected elements, and ARVENT replies in that thread once a later version resolves them.</p><p><strong>The language model never performs calculations and never writes the database query.</strong> It completes a structured query plan that is restricted to existing field names. Code validates and corrects the plan, executes it, and includes the exact query and result in every reply. The model can propose rules from the specification, but none is applied until a person approves it.</p><p>I also built a custom connector between Speckle and Revit.</p>
+  <h2>Features</h2><ul class="features"><li>Answers questions about a selected element from its properties and any attached specification PDF, with page references</li><li>Answers questions about the whole model, such as counts, totals and breakdowns per floor</li><li>Keeps every element of the latest version of each model in a local SQLite database</li><li>The language model only fills in a structured query plan; code checks and corrects it and runs it as a safe database query</li><li>Each reply shows the exact query and result, and a link that opens exactly those elements in the Speckle viewer</li><li>Suggests rules from specification PDFs; a person approves them before they run</li><li>Checks every new model version and opens one pinned thread per failing rule, highlighting the elements in the viewer</li><li>Replies "Resolved" when a later version fixes the problem</li><li>Missing values are reported as missing, never invented, and page references are checked against the documents</li><li>Runs on a local Llama model through Ollama, so model data and documents never leave the machine</li><li>Works with both Speckle data formats (version 2 Revit parameters and version 3 properties)</li><li>Webhook server with signature checks and protection against duplicate retries; a command line for indexing, questions and checks; Docker setup with GPU support</li></ul>
+  <h2>Glossary</h2><dl class="gloss"><div><dt>Revit</dt><dd>Autodesk's main software for designing buildings as BIM models. It is widely used by architects and engineers.</dd></div><div><dt>Speckle</dt><dd>An open platform for sharing and viewing 3D building models online.</dd></div><div><dt>Language model</dt><dd>An AI model that reads and writes text, such as the one behind ChatGPT. Llama is a freely available model that can run on a local computer.</dd></div></dl>
   
 </div></section>
 <section><div class="wrap">
-  <div class="sec-head"><p class="eyebrow">See it</p><h2>Screenshots &amp; demos</h2></div>
+  <div class="sec-head"><p class="eyebrow">Gallery</p><h2>Screenshots and demonstrations</h2></div>
   <div class="gallery"><figure><a href="../img/arvent-card.png" target="_blank" rel="noopener"><img src="../img/arvent-card.png" alt="The ARVENT mark" loading="lazy"></a><figcaption><b>The ARVENT mark</b></figcaption></figure><figure><a href="../img/arvent-01-index.png" target="_blank" rel="noopener"><img src="../img/arvent-01-index.png" alt="Reading a model into the local database" loading="lazy"></a><figcaption><b>Reading a model into the local database</b></figcaption></figure><figure><a href="../img/arvent-query.png" target="_blank" rel="noopener"><img src="../img/arvent-query.png" alt="A model-wide question" loading="lazy"></a><figcaption><b>A model-wide question</b></figcaption></figure><figure><a href="../img/arvent-03-query-de.png" target="_blank" rel="noopener"><img src="../img/arvent-03-query-de.png" alt="The same question in German" loading="lazy"></a><figcaption><b>The same question in German</b></figcaption></figure><figure><a href="../img/arvent-04-extract.png" target="_blank" rel="noopener"><img src="../img/arvent-04-extract.png" alt="Rules proposed from a specification" loading="lazy"></a><figcaption><b>Rules proposed from a specification</b></figcaption></figure><figure><a href="../img/arvent-check.png" target="_blank" rel="noopener"><img src="../img/arvent-check.png" alt="Checking approved rules" loading="lazy"></a><figcaption><b>Checking approved rules</b></figcaption></figure><figure><a href="../img/arvent-ask.png" target="_blank" rel="noopener"><img src="../img/arvent-ask.png" alt="A missing value is reported, never invented" loading="lazy"></a><figcaption><b>A missing value is reported, never invented</b></figcaption></figure></div>
 </div></section>
 <section><div class="wrap"><div class="pn">
@@ -70,19 +70,18 @@
 
 <section id="contact"><div class="wrap"><div class="contact">
   <p class="eyebrow">Contact</p>
-  <h2>Let's talk</h2>
-  <p>If your team loses hours to model checks, exports, sorting clashes or copying data out of Revit by hand,
-  I'd like to hear about it. I'm also always up for a conversation about AEC software, openBIM and AI in
-  construction.</p>
+  <h2>Get in touch</h2>
+  <p>I welcome conversations about BIM automation, openBIM and applied AI in architecture, engineering and
+  construction, as well as invitations to speak or collaborate.</p>
   <div class="links">
-    <a class="btn primary" href="mailto:mohamedkmahdy@outlook.com">Email me</a>
+    <a class="btn primary" href="mailto:mohamedkmahdy@outlook.com">Email</a>
     <a class="btn" href="https://www.linkedin.com/in/mohamedkmahdy/" rel="noopener">LinkedIn</a>
     <a class="btn" href="https://github.com/MohamedKMahdy" rel="noopener">GitHub</a>
   </div>
 </div></div></section>
 <footer><div class="wrap">
-  <span>Mohamed K. Mahdy · Munich, Germany</span>
-  <span>A small static site. No trackers, no cookies.</span>
+  <span>© 2026 Mohamed K. Mahdy · Munich, Germany</span>
+  <span>No trackers, no cookies.</span>
 </div></footer>
 <script>(function(){var r=document.documentElement,t=document.getElementById('tt'),s=null;
 try{s=localStorage.getItem('theme')}catch(e){}

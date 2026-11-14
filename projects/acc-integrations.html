@@ -4,17 +4,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>LARBACC | Mohamed K. Mahdy</title>
-<meta name="description" content="Copies your Autodesk Construction Cloud projects to your own drive every week, downloading only what changed.">
+<meta name="description" content="Copies Autodesk Construction Cloud projects to a local drive every week, downloading only what has changed.">
 <meta property="og:title" content="LARBACC | Mohamed K. Mahdy">
-<meta property="og:description" content="Copies your Autodesk Construction Cloud projects to your own drive every week, downloading only what changed.">
+<meta property="og:description" content="Copies Autodesk Construction Cloud projects to a local drive every week, downloading only what has changed.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://mohamedkmahdy.com/projects/acc-integrations">
 <meta property="og:site_name" content="Mohamed K. Mahdy">
-<meta property="og:image" content="https://mohamedkmahdy.com/og/acc-integrations.png?v=f1f8480a">
+<meta property="og:image" content="https://mohamedkmahdy.com/og/acc-integrations.png?v=f820a0dd">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://mohamedkmahdy.com/og/acc-integrations.png?v=f1f8480a">
+<meta name="twitter:image" content="https://mohamedkmahdy.com/og/acc-integrations.png?v=f820a0dd">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='26' fill='%2309090b'/><text x='50' y='66' text-anchor='middle' font-size='44' font-weight='700' font-family='Inter,Arial,sans-serif' fill='%23fafafa'>MK</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,7 +39,7 @@
 
 <main id="main">
 <div class="band"><div class="wrap read">
-  <a class="crumb" href="../index.html#work">← All work</a>
+  <a class="crumb" href="../index.html#work">← All projects</a>
   <div class="phead">
     <span class="tag">ACC · backups</span>
     <h1>LARBACC</h1>
@@ -48,19 +48,19 @@
   </div>
 </div></div>
 <section><div class="wrap read pbody">
-  <div class="plain"><span>In plain words</span><p>Many construction teams keep all their project files in Autodesk Construction Cloud, an online file platform. If a folder is deleted there or a subscription ends, the files can be lost. LARBACC copies the projects you choose to your own drive every week and keeps the last few copies.</p></div>
-  <div class="result"><span>Result</span>It started as a desktop front end for Stewart Celani's MIT-licensed <a href="https://github.com/stewartcelani/autodesk-construction-cloud-backup" rel="noopener">autodesk-construction-cloud-backup</a>, and keeps that history and credit.</div>
+  <div class="plain"><span>Overview</span><p>Many construction teams keep all their project files in Autodesk Construction Cloud, an online document platform. If a folder is deleted there or a subscription ends, the files can be lost. LARBACC copies selected projects to a local drive every week and retains the most recent copies.</p></div>
+  <div class="result"><span>Result</span>LARBACC began as a desktop front end for Stewart Celani's MIT-licensed <a href="https://github.com/stewartcelani/autodesk-construction-cloud-backup" rel="noopener">autodesk-construction-cloud-backup</a> and retains that history and credit.</div>
   <h2>The problem</h2>
-  <p class="problem">Projects in Autodesk Construction Cloud feel safe because they're in the cloud. But a deleted folder or an ended subscription can still take years of work with it.</p>
-  <h2>What it does</h2>
-  <p><strong>LARBACC</strong> (Local, Automatic, Rotating Backups of Autodesk Construction Cloud) keeps dated copies of ACC and BIM 360 projects on a local or network drive. You choose the projects and folders, a destination and a weekly time. It downloads the latest version of every document and keeps the last few backups. The interface is in German and English.</p><p><strong>Only changes get downloaded.</strong> If a document hasn't changed since the last backup, LARBACC links to the earlier copy instead of downloading it again (a file-system feature called a hard link). Later runs are fast, and five backups don't take five times the space. A run only counts as a backup once its complete file list is written, so a crash or power cut can't leave a half-finished folder that looks complete.</p><p>Sign-in uses PKCE, so there's no secret key inside the program. If LARBACC was closed when a backup was due, it runs at the next start, and a failed run tries again after 15 minutes, 1 hour and 4 hours.</p>
+  <p class="problem">Projects in Autodesk Construction Cloud appear safe because they are stored in the cloud. A deleted folder or an expired subscription can nevertheless remove years of work.</p>
+  <h2>The solution</h2>
+  <p><strong>LARBACC</strong> (Local, Automatic, Rotating Backups of Autodesk Construction Cloud) keeps dated copies of ACC and BIM 360 projects on a local or network drive. The user selects the projects and folders, a destination and a weekly time. LARBACC downloads the latest version of every document and retains the most recent backups. The interface is available in German and English.</p><p><strong>Only changes are downloaded.</strong> If a document has not changed since the last backup, LARBACC links to the earlier copy instead of downloading it again (a file-system feature known as a hard link). Later runs are therefore fast, and five backups do not require five times the space. A run counts as a backup only once its complete file list has been written, so a crash or power failure cannot leave an incomplete folder that appears complete.</p><p>Sign-in uses PKCE, so no secret key is stored in the program. If LARBACC was closed when a backup was due, the backup runs at the next start, and a failed run is retried after 15 minutes, 1 hour and 4 hours.</p>
   <h2>Features</h2><ul class="features"><li>Choose ACC and BIM 360 projects, folders and a destination; the latest version of every document is saved under its ACC name</li><li>One dated folder per project and run, with a report and a list of every file and its ACC version</li><li>Unchanged documents are linked to the previous backup instead of downloaded again</li><li>Keeps the last few backups per project (5 by default) and never deletes anything after a run that had failures</li><li>A run only becomes a backup once its file list is written; failed and cancelled runs are kept and labelled</li><li>Include or leave out any folder; new folders follow the choice made for their parent folder</li><li>Weekly schedule on any days and time, running from the Windows notification area and optionally starting with Windows</li><li>Missed backups run at the next start; failed ones are retried after 15 minutes, 1 hour and 4 hours</li><li>Secure sign-in (PKCE) with no secret key shipped in the program; an optional key is stored encrypted for the Windows user</li><li>1 to 8 downloads at once, a test run that downloads nothing, and daily logs</li><li>German and English interface</li></ul>
-  <h2>Terms on this page</h2><dl class="gloss"><div><dt>BIM</dt><dd>Building Information Modelling: designing a building as a shared 3D model that also holds data about every part, instead of separate drawings.</dd></div><div><dt>ACC / BIM 360</dt><dd>Autodesk Construction Cloud, an online platform where project teams store and share models and documents. BIM 360 is the older version.</dd></div></dl>
+  <h2>Glossary</h2><dl class="gloss"><div><dt>BIM</dt><dd>Building Information Modelling: designing a building as a shared 3D model that also holds data about every part, instead of separate drawings.</dd></div><div><dt>ACC / BIM 360</dt><dd>Autodesk Construction Cloud, an online platform where project teams store and share models and documents. BIM 360 is the older version.</dd></div></dl>
   
 </div></section>
 <section><div class="wrap">
-  <div class="sec-head"><p class="eyebrow">See it</p><h2>Screenshots &amp; demos</h2></div>
-  <div class="gallery"><figure><a href="../img/larbacc-projects.png" target="_blank" rel="noopener"><img src="../img/larbacc-projects.png" alt="Projects and weekly schedule" loading="lazy"></a><figcaption><b>Projects and weekly schedule</b><span>Made-up data.</span></figcaption></figure><figure><a href="../img/larbacc-folders.png" target="_blank" rel="noopener"><img src="../img/larbacc-folders.png" alt="Folder selection" loading="lazy"></a><figcaption><b>Folder selection</b></figcaption></figure><figure><a href="../img/larbacc-running.png" target="_blank" rel="noopener"><img src="../img/larbacc-running.png" alt="A backup running" loading="lazy"></a><figcaption><b>A backup running</b></figcaption></figure><figure><a href="../img/larbacc-first-run.png" target="_blank" rel="noopener"><img src="../img/larbacc-first-run.png" alt="First start" loading="lazy"></a><figcaption><b>First start</b></figcaption></figure><figure class="narrow"><a href="../img/larbacc-settings.png" target="_blank" rel="noopener"><img src="../img/larbacc-settings.png" alt="Settings" loading="lazy"></a><figcaption><b>Settings</b></figcaption></figure></div>
+  <div class="sec-head"><p class="eyebrow">Gallery</p><h2>Screenshots and demonstrations</h2></div>
+  <div class="gallery"><figure><a href="../img/larbacc-projects.png" target="_blank" rel="noopener"><img src="../img/larbacc-projects.png" alt="Projects and weekly schedule" loading="lazy"></a><figcaption><b>Projects and weekly schedule</b><span>Sample data.</span></figcaption></figure><figure><a href="../img/larbacc-folders.png" target="_blank" rel="noopener"><img src="../img/larbacc-folders.png" alt="Folder selection" loading="lazy"></a><figcaption><b>Folder selection</b></figcaption></figure><figure><a href="../img/larbacc-running.png" target="_blank" rel="noopener"><img src="../img/larbacc-running.png" alt="A backup running" loading="lazy"></a><figcaption><b>A backup running</b></figcaption></figure><figure><a href="../img/larbacc-first-run.png" target="_blank" rel="noopener"><img src="../img/larbacc-first-run.png" alt="First start" loading="lazy"></a><figcaption><b>First start</b></figcaption></figure><figure class="narrow"><a href="../img/larbacc-settings.png" target="_blank" rel="noopener"><img src="../img/larbacc-settings.png" alt="Settings" loading="lazy"></a><figcaption><b>Settings</b></figcaption></figure></div>
 </div></section>
 <section><div class="wrap"><div class="pn">
   <a href="rifadex.html"><small>← Previous project</small><b>RIFADEX</b></a>
@@ -70,19 +70,18 @@
 
 <section id="contact"><div class="wrap"><div class="contact">
   <p class="eyebrow">Contact</p>
-  <h2>Let's talk</h2>
-  <p>If your team loses hours to model checks, exports, sorting clashes or copying data out of Revit by hand,
-  I'd like to hear about it. I'm also always up for a conversation about AEC software, openBIM and AI in
-  construction.</p>
+  <h2>Get in touch</h2>
+  <p>I welcome conversations about BIM automation, openBIM and applied AI in architecture, engineering and
+  construction, as well as invitations to speak or collaborate.</p>
   <div class="links">
-    <a class="btn primary" href="mailto:mohamedkmahdy@outlook.com">Email me</a>
+    <a class="btn primary" href="mailto:mohamedkmahdy@outlook.com">Email</a>
     <a class="btn" href="https://www.linkedin.com/in/mohamedkmahdy/" rel="noopener">LinkedIn</a>
     <a class="btn" href="https://github.com/MohamedKMahdy" rel="noopener">GitHub</a>
   </div>
 </div></div></section>
 <footer><div class="wrap">
-  <span>Mohamed K. Mahdy · Munich, Germany</span>
-  <span>A small static site. No trackers, no cookies.</span>
+  <span>© 2026 Mohamed K. Mahdy · Munich, Germany</span>
+  <span>No trackers, no cookies.</span>
 </div></footer>
 <script>(function(){var r=document.documentElement,t=document.getElementById('tt'),s=null;
 try{s=localStorage.getItem('theme')}catch(e){}

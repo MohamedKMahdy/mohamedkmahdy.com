@@ -4,17 +4,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Raumbuch | Mohamed K. Mahdy</title>
-<meta name="description" content="Builds a room book, every room and everything in it, straight from the building model. A Revit add-in, plus a web app that also opens IFC files.">
+<meta name="description" content="Generates a room book, listing every room and its contents, directly from the building model. Available as a Revit add-in and as a web application that also opens IFC files.">
 <meta property="og:title" content="Raumbuch | Mohamed K. Mahdy">
-<meta property="og:description" content="Builds a room book, every room and everything in it, straight from the building model. A Revit add-in, plus a web app that also opens IFC files.">
+<meta property="og:description" content="Generates a room book, listing every room and its contents, directly from the building model. Available as a Revit add-in and as a web application that also opens IFC files.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://mohamedkmahdy.com/projects/aps-raumbuch">
 <meta property="og:site_name" content="Mohamed K. Mahdy">
-<meta property="og:image" content="https://mohamedkmahdy.com/og/aps-raumbuch.png?v=d582641f">
+<meta property="og:image" content="https://mohamedkmahdy.com/og/aps-raumbuch.png?v=421ae0a0">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://mohamedkmahdy.com/og/aps-raumbuch.png?v=d582641f">
+<meta name="twitter:image" content="https://mohamedkmahdy.com/og/aps-raumbuch.png?v=421ae0a0">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='26' fill='%2309090b'/><text x='50' y='66' text-anchor='middle' font-size='44' font-weight='700' font-family='Inter,Arial,sans-serif' fill='%23fafafa'>MK</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,27 +39,27 @@
 
 <main id="main">
 <div class="band"><div class="wrap read">
-  <a class="crumb" href="../index.html#work">← All work</a>
+  <a class="crumb" href="../index.html#work">← All projects</a>
   <div class="phead">
     <span class="tag">Revit + web</span>
     <h1>Raumbuch</h1>
-    <p class="subtitle">One room book, two routes to it.</p>
+    <p class="subtitle">One room book, from Revit or from the browser.</p>
     <ul class="chips" aria-label="Built with"><li>C#</li><li>Revit API</li><li>React</li><li>Vite</li><li>FastAPI</li><li>APS Viewer</li><li>Model Derivative API</li><li>web-ifc</li><li>three.js</li></ul>
   </div>
 </div></div>
 <section><div class="wrap read pbody">
-  <div class="plain"><span>In plain words</span><p>A room book (Raumbuch in German) lists every room in a building with its size, finishes and furniture. Usually someone types it up by hand. Raumbuch builds it from the 3D model and exports it to Excel, PDF and an interactive web page.</p></div>
-  <div class="result"><span>Result</span>I didn't want it tied to one vendor. IFC files open <strong>without any login</strong>, are read in the browser and never leave your machine, and you can load several at once as one model.</div>
+  <div class="plain"><span>Overview</span><p>A room book (<em>Raumbuch</em> in German) lists every room in a building with its size, finishes and furniture. It is usually compiled by hand. Raumbuch generates it from the 3D model and exports it to Excel, PDF and an interactive web page.</p></div>
+  <div class="result"><span>Result</span>The tool is not tied to a single vendor. IFC files open <strong>without any login</strong>, are read in the browser and never leave the user's machine, and several files can be loaded together as one model.</div>
   <h2>The problem</h2>
-  <p class="problem">A room book lists every room and everything in it. Most teams still put it together by hand, room by room, and start over when the design changes.</p>
-  <h2>What it does</h2>
-  <p><strong>The Revit add-in</strong> (Revit 2023 to 2027) works out which room every piece of furniture and equipment stands in, linked models included, and writes the room number and name onto it. Then it makes one cropped floor plan per room and exports the room book to Excel, to a PDF with one page per room, and to an interactive HTML page that works offline. The three steps sit in one panel, in German and English.</p><p><strong>The web app</strong> signs in to Autodesk Construction Cloud, lets you browse hubs, projects and folders in every Autodesk data region, and opens a model in the browser with a floor plan next to the 3D view. It finds the rooms in the 3D model, in Autodesk's model data, or in the 2D plans if neither has them. Furniture from the main model and every linked model goes into one coordinate system and is matched to a room by parameter, by position, or by the nearest room within 2 m.</p><p>Both export the same formatted German <em>Raumbuch</em>: Excel, PDF, and a single-file HTML dashboard whose charts double as filters.</p>
-  <h2>Features</h2><ul class="features"><li>Revit add-in for Revit 2023 to 2027: one panel with three steps and a highlighted next action, in German and English</li><li>Finds the room each piece of furniture and equipment stands in, also across linked models, and writes the room number and name onto it</li><li>Creates one cropped floor plan per room, named by room number and name</li><li>Exports the room book as Excel (area, volume and height as real numbers you can add up and filter), as a PDF with a cover and one page per room with its plan and furniture, and as an offline HTML dashboard</li><li>Settings choose which room details go into the PDF, which furniture categories count, and how the room plans look</li><li>Web app: Autodesk sign-in, with hubs, projects and folders from all Autodesk data regions (US, Europe, Australia) in one list</li><li>Web app: 3D viewer with a floor plan beside it; selecting a room highlights its furniture and cuts the room out of the model</li><li>Web app: rooms from the 3D model, from Autodesk's model data or from the 2D plans; furniture from the main model and every linked model in one coordinate system</li><li>Furniture is matched to rooms by parameter, by position, or by the nearest room within 2 m; anything left over is listed separately</li><li>Searchable room table grouped by floor, with area totals and furniture grouped by category and type</li><li>IFC files open in the browser without any login; several files form one combined model, and nothing is uploaded</li><li>In IFC mode, selecting a room shows it from above with its furniture</li><li>Dashboard export: one offline HTML file with summary tiles, charts that act as filters, a room table with plan images and a CSV download</li></ul>
-  <h2>Terms on this page</h2><dl class="gloss"><div><dt>Revit</dt><dd>Autodesk's main software for designing buildings as BIM models. Most architects and engineers use it.</dd></div><div><dt>Add-in</dt><dd>A small program that runs inside another program, here inside Revit or Navisworks, and adds new buttons and features to it.</dd></div><div><dt>Linked model</dt><dd>A model from another file, often from another team, shown inside your model for reference but kept separate from it.</dd></div><div><dt>ACC / BIM 360</dt><dd>Autodesk Construction Cloud, an online platform where project teams store and share models and documents. BIM 360 is the older version.</dd></div><div><dt>IFC</dt><dd>An open file format for building models that any BIM software can read. It is maintained by buildingSMART.</dd></div></dl>
+  <p class="problem">A room book lists every room and everything in it. Most teams still compile it manually, room by room, and repeat the work whenever the design changes.</p>
+  <h2>The solution</h2>
+  <p><strong>The Revit add-in</strong> (Revit 2023 to 2027) determines which room each item of furniture and equipment is located in, including items in linked models, and writes the room number and name to the item. It then creates one cropped floor plan per room and exports the room book to Excel, to a PDF with one page per room, and to an interactive HTML page that works offline. The three steps are presented in a single panel, in German and English.</p><p><strong>The web application</strong> signs in to Autodesk Construction Cloud, provides access to hubs, projects and folders in every Autodesk data region, and opens a model in the browser with a floor plan alongside the 3D view. Rooms are located in the 3D model, in Autodesk's model data, or in the 2D plans where neither contains them. Furniture from the main model and all linked models is brought into one coordinate system and matched to a room by parameter, by position, or by the nearest room within 2 m.</p><p>Both versions export the same formatted German Raumbuch: Excel, PDF, and a single-file HTML dashboard in which the charts also act as filters.</p>
+  <h2>Features</h2><ul class="features"><li>Revit add-in for Revit 2023 to 2027: one panel with three steps and a highlighted next action, in German and English</li><li>Finds the room each piece of furniture and equipment stands in, also across linked models, and writes the room number and name onto it</li><li>Creates one cropped floor plan per room, named by room number and name</li><li>Exports the room book as Excel (area, volume and height as numeric values that can be summed and filtered), as a PDF with a cover and one page per room with its plan and furniture, and as an offline HTML dashboard</li><li>Settings choose which room details go into the PDF, which furniture categories count, and how the room plans look</li><li>Web app: Autodesk sign-in, with hubs, projects and folders from all Autodesk data regions (US, Europe, Australia) in one list</li><li>Web app: 3D viewer with a floor plan beside it; selecting a room highlights its furniture and cuts the room out of the model</li><li>Web app: rooms from the 3D model, from Autodesk's model data or from the 2D plans; furniture from the main model and every linked model in one coordinate system</li><li>Furniture is matched to rooms by parameter, by position, or by the nearest room within 2 m; anything left over is listed separately</li><li>Searchable room table grouped by floor, with area totals and furniture grouped by category and type</li><li>IFC files open in the browser without any login; several files form one combined model, and nothing is uploaded</li><li>In IFC mode, selecting a room shows it from above with its furniture</li><li>Dashboard export: one offline HTML file with summary tiles, charts that act as filters, a room table with plan images and a CSV download</li></ul>
+  <h2>Glossary</h2><dl class="gloss"><div><dt>Revit</dt><dd>Autodesk's main software for designing buildings as BIM models. It is widely used by architects and engineers.</dd></div><div><dt>Add-in</dt><dd>A small program that runs inside another program, here inside Revit or Navisworks, and adds new buttons and features to it.</dd></div><div><dt>Linked model</dt><dd>A model from another file, often from another team, shown inside the current model for reference but kept separate from it.</dd></div><div><dt>ACC / BIM 360</dt><dd>Autodesk Construction Cloud, an online platform where project teams store and share models and documents. BIM 360 is the older version.</dd></div><div><dt>IFC</dt><dd>An open file format for building models that any BIM software can read. It is maintained by buildingSMART.</dd></div></dl>
   
 </div></section>
 <section><div class="wrap">
-  <div class="sec-head"><p class="eyebrow">See it</p><h2>Screenshots &amp; demos</h2></div>
+  <div class="sec-head"><p class="eyebrow">Gallery</p><h2>Screenshots and demonstrations</h2></div>
   <div class="gallery"><figure><a href="../img/raumbuch-dashboard.jpg" target="_blank" rel="noopener"><img src="../img/raumbuch-dashboard.jpg" alt="The room book dashboard" loading="lazy"></a><figcaption><b>The room book dashboard</b><span>One offline HTML file. Rendered from the real template with sample data.</span></figcaption></figure><figure class="narrow"><a href="../img/raumbuch-panel.png" target="_blank" rel="noopener"><img src="../img/raumbuch-panel.png" alt="The Revit add-in panel" loading="lazy"></a><figcaption><b>The Revit add-in panel</b><span>Model status, the three steps, export formats and settings.</span></figcaption></figure><figure><a href="../img/raumbuch-excel.png" target="_blank" rel="noopener"><img src="../img/raumbuch-excel.png" alt="Excel export" loading="lazy"></a><figcaption><b>Excel export</b><span>Rooms with their furniture grouped under each room.</span></figcaption></figure><figure><a href="../img/raumbuch-pdf-room.png" target="_blank" rel="noopener"><img src="../img/raumbuch-pdf-room.png" alt="PDF: one page per room" loading="lazy"></a><figcaption><b>PDF: one page per room</b><span>General data, the room plan and the furniture list.</span></figcaption></figure><figure><a href="../img/raumbuch-web-login.png" target="_blank" rel="noopener"><img src="../img/raumbuch-web-login.png" alt="Web app: sign in or open IFC" loading="lazy"></a><figcaption><b>Web app: sign in or open IFC</b><span>Autodesk sign-in for ACC, or IFC files with no login.</span></figcaption></figure><figure><a href="../img/raumbuch-web-ifc.png" target="_blank" rel="noopener"><img src="../img/raumbuch-web-ifc.png" alt="Web app: an IFC model" loading="lazy"></a><figcaption><b>Web app: an IFC model</b><span>The model, the plan panel and the room table side by side.</span></figcaption></figure><figure><a href="../img/raumbuch-web-room.png" target="_blank" rel="noopener"><img src="../img/raumbuch-web-room.png" alt="Web app: a selected room" loading="lazy"></a><figcaption><b>Web app: a selected room</b><span>Shown from above with its furniture.</span></figcaption></figure><figure><a href="../img/raumbuch-web-settings.png" target="_blank" rel="noopener"><img src="../img/raumbuch-web-settings.png" alt="Web app: settings" loading="lazy"></a><figcaption><b>Web app: settings</b><span>Which room parameters and furniture categories go into the exports.</span></figcaption></figure></div>
 </div></section>
 <section><div class="wrap"><div class="pn">
@@ -70,19 +70,18 @@
 
 <section id="contact"><div class="wrap"><div class="contact">
   <p class="eyebrow">Contact</p>
-  <h2>Let's talk</h2>
-  <p>If your team loses hours to model checks, exports, sorting clashes or copying data out of Revit by hand,
-  I'd like to hear about it. I'm also always up for a conversation about AEC software, openBIM and AI in
-  construction.</p>
+  <h2>Get in touch</h2>
+  <p>I welcome conversations about BIM automation, openBIM and applied AI in architecture, engineering and
+  construction, as well as invitations to speak or collaborate.</p>
   <div class="links">
-    <a class="btn primary" href="mailto:mohamedkmahdy@outlook.com">Email me</a>
+    <a class="btn primary" href="mailto:mohamedkmahdy@outlook.com">Email</a>
     <a class="btn" href="https://www.linkedin.com/in/mohamedkmahdy/" rel="noopener">LinkedIn</a>
     <a class="btn" href="https://github.com/MohamedKMahdy" rel="noopener">GitHub</a>
   </div>
 </div></div></section>
 <footer><div class="wrap">
-  <span>Mohamed K. Mahdy · Munich, Germany</span>
-  <span>A small static site. No trackers, no cookies.</span>
+  <span>© 2026 Mohamed K. Mahdy · Munich, Germany</span>
+  <span>No trackers, no cookies.</span>
 </div></footer>
 <script>(function(){var r=document.documentElement,t=document.getElementById('tt'),s=null;
 try{s=localStorage.getItem('theme')}catch(e){}
