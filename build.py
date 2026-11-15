@@ -930,7 +930,7 @@ def build_index():
     <h1>{NAME}</h1>
     <p class="role">{ROLE} · Munich</p>
     <p class="lede">{LEDE}</p>
-    <p class="sub">Five years of software development for architecture and engineering teams in Egypt, the UAE
+    <p class="sub">Six years of software development for architecture and engineering teams in Egypt, the UAE
     and Germany.</p>
     <div class="links">
       <a class="btn primary" href="#work">View selected work</a>
@@ -941,7 +941,7 @@ def build_index():
 </div>
   <div class="stats">
     <div class="stat"><b>~20</b><span>tools delivered</span></div>
-    <div class="stat"><b>5+</b><span>years in AEC</span></div>
+    <div class="stat"><b>6</b><span>years in AEC</span></div>
     <div class="stat"><b>6</b><span>organisations</span></div>
     <div class="stat"><b>3</b><span>countries</span></div>
   </div>
