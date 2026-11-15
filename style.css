@@ -169,7 +169,7 @@ color:var(--fg);font-size:13px;font-weight:700;font-variant-numeric:tabular-nums
 /* contact */
 #contact{border-top:0;padding-bottom:72px}
 .contact{border-radius:20px;padding:56px 52px;margin:0 0 8px;color:var(--on-ink);border:1px solid rgba(161,161,170,.12)}
-.contact h2{margin-bottom:10px;color:#fff}
+.contact h2{margin-bottom:22px;color:#fff}
 .contact .eyebrow{color:#a1a1aa}
 .contact p{color:#d4d4d8;max-width:60ch;margin:0 0 26px}
 .contact .btn{background:rgba(255,255,255,.04);color:var(--on-ink);border-color:rgba(161,161,170,.28)}
@@ -193,7 +193,7 @@ section:has(.pbody){padding:64px 0 80px}
 .problem{font-size:19px;line-height:1.6;color:var(--fg);margin:0}
 .pbody p{color:var(--fg-soft);margin:0 0 14px}
 .pbody p strong{color:var(--fg);font-weight:600}
-.result{margin:0 0 8px;padding:20px 22px;background:var(--accent-soft);border:1px solid var(--line);
+.result{margin:24px 0 8px;padding:20px 22px;background:var(--accent-soft);border:1px solid var(--line);
 border-radius:var(--r);font-size:16px;color:var(--fg)}
 .result span,.plain span{display:block;font-size:13px;font-weight:600;color:var(--fg-faint);letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px}
 .features{list-style:none;margin:8px 0 4px;padding:0;display:grid;grid-template-columns:1fr;gap:10px}

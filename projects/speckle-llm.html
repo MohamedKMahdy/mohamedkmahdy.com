@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="../style.css?v=0ecc2d23">
+<link rel="stylesheet" href="../style.css?v=de6d1d4b">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -40,17 +40,14 @@
   <div class="phead">
     <span class="tag">Speckle · local AI</span>
     <h1>AskBIM</h1>
-    <p class="subtitle">Natural-language questions on building models, since 2023.</p>
+    <p class="subtitle">Natural-language questions on building models.</p>
     <ul class="chips" aria-label="Built with"><li>Python</li><li>FastAPI</li><li>Speckle (GraphQL, webhooks, specklepy)</li><li>Ollama</li><li>Llama 3.1</li><li>SQLite</li></ul>
   </div>
 </div></div>
 <section><div class="wrap read pbody">
-  <div class="plain"><span>Overview</span><p>Most people on a building project never open the 3D model, yet they still have questions about it. AskBIM allows them to ask in a comment, for example how many doors have no fire rating, and replies with the answer, the exact data behind it and a link that shows the relevant elements in the model. It also checks each new version of the model against the project's written requirements.</p></div>
-  <div class="result"><span>Result</span>The conclusion from 2023 still holds: <strong>the language model was never the difficult part.</strong> Obtaining clean, structured data from the design tools is.</div>
-  <h2>The problem</h2>
-  <p class="problem">Most people on a project never open the model, yet they still have questions about it: the insulation value of a panel, the number of doors without a fire rating, or whether the latest version still meets the specification.</p>
-  <h2>The solution</h2>
-  <p>In 2023 I connected Speckle, an open platform for sharing 3D building models, to a large language model so that a project team could query a model in plain language. <strong>AskBIM</strong> is the 2026 rebuild. It runs on a <strong>local Llama model through Ollama</strong>, so model data and project documents never leave the machine.</p><p>AskBIM operates within Speckle's comment threads. A question about a selected element is answered from the element's properties and any attached specification PDF, with page references, and questions about the whole model are answered in the same way. Each new version is checked against rules derived from the specification. Every failing rule receives its own thread highlighting the affected elements, and AskBIM replies in that thread once a later version resolves them.</p><p><strong>The language model never performs calculations and never writes the database query.</strong> It completes a structured query plan that is restricted to existing field names. Code validates and corrects the plan, executes it, and includes the exact query and result in every reply. The model can propose rules from the specification, but none is applied until a person approves it.</p><p>AskBIM also reads native IFC files (IFC2X3, IFC4 and IFC4X3) locally, without a platform or an account, and writes the findings of a check as BCF topics that other BIM tools can open.</p><p>I also built a custom connector between Speckle and Revit.</p>
+  <h2>Overview</h2>
+  <p><strong>AskBIM</strong> answers plain-language questions about a 3D building model within the comment threads of Speckle, an open platform for sharing 3D building models. It runs on a <strong>local Llama model through Ollama</strong>, so model data and project documents stay on the machine. First built in 2023 and rebuilt in 2026.</p><p>A question about a selected element or about the whole model is answered from the element properties and any attached specification PDF, with page references. Each new model version is checked against rules derived from the specification. Every failing rule receives its own thread highlighting the affected elements, and the thread is updated once a later version resolves them.</p><p>The language model performs no calculations and writes no database queries. It completes a structured query plan restricted to existing field names. Code validates and executes the plan and includes the exact query and result in every reply. Rules proposed by the model are applied only after a person approves them.</p><p>Native IFC files (IFC2X3, IFC4 and IFC4X3) are read locally, without a platform or an account, and the findings of a check are written as BCF topics.</p><p>The project also includes a custom connector between Speckle and Revit.</p>
+  
   <h2>Features</h2><ul class="features"><li>Answers questions about a selected element from its properties and any attached specification PDF, with page references</li><li>Answers questions about the whole model, such as counts, totals and breakdowns per floor</li><li>Keeps every element of the latest version of each model in a local SQLite database</li><li>The language model only fills in a structured query plan; code checks and corrects it and runs it as a safe database query</li><li>Each reply shows the exact query and result, and a link that opens exactly those elements in the Speckle viewer</li><li>Suggests rules from specification PDFs; a person approves them before they run</li><li>Checks every new model version and opens one pinned thread per failing rule, highlighting the elements in the viewer</li><li>Replies "Resolved" when a later version fixes the problem</li><li>Missing values are reported as missing, never invented, and page references are checked against the documents</li><li>Runs on a local Llama model through Ollama, so model data and documents never leave the machine</li><li>Works with both Speckle data formats (version 2 Revit parameters and version 3 properties)</li><li>Reads native IFC files (IFC2X3, IFC4 and IFC4X3) locally, without a platform or an account</li><li>Writes the findings of an IFC check as BCF 2.1 topics that other BIM tools can open</li><li>Webhook server with signature checks and protection against duplicate retries; a command line for indexing, questions and checks; Docker setup with GPU support</li></ul>
   <h2>Glossary</h2><dl class="gloss"><div><dt>BIM</dt><dd>Building Information Modelling: designing a building as a shared 3D model that also holds data about every part, instead of separate drawings.</dd></div><div><dt>Revit</dt><dd>Autodesk's main software for designing buildings as BIM models. It is widely used by architects and engineers.</dd></div><div><dt>IFC</dt><dd>An open file format for building models that any BIM software can read. It is maintained by buildingSMART.</dd></div><div><dt>BCF</dt><dd>An open format for passing model issues, such as clashes, between different BIM programs.</dd></div><div><dt>Speckle</dt><dd>An open platform for sharing and viewing 3D building models online.</dd></div><div><dt>Language model</dt><dd>An AI model that reads and writes text, such as the one behind ChatGPT. Llama is a freely available model that can run on a local computer.</dd></div></dl>
   
@@ -66,10 +63,7 @@
 </main>
 
 <section id="contact"><div class="wrap"><div class="contact">
-  <p class="eyebrow">Contact</p>
-  <h2>Get in touch</h2>
-  <p>I welcome conversations about BIM automation, openBIM and applied AI in architecture, engineering and
-  construction, as well as invitations to speak or collaborate.</p>
+  <h2>Contact</h2>
   <div class="links">
     <a class="btn primary" href="mailto:mohamedkmahdy@outlook.com">Email</a>
     <a class="btn" href="https://www.linkedin.com/in/mohamedkmahdy/" rel="noopener">LinkedIn</a>

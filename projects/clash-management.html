@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="../style.css?v=0ecc2d23">
+<link rel="stylesheet" href="../style.css?v=de6d1d4b">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -40,17 +40,14 @@
   <div class="phead">
     <span class="tag">Navisworks · clash tools</span>
     <h1>Clash Organizer</h1>
-    <p class="subtitle">4,000 clashes, 200 actual problems.</p>
+    <p class="subtitle">A Navisworks add-in that groups clashes by zone and transfers their status.</p>
     <ul class="chips" aria-label="Built with"><li>C#</li><li>Navisworks API 2022 to 2027</li><li>WPF</li><li>xUnit</li></ul>
   </div>
 </div></div>
 <section><div class="wrap read pbody">
-  <div class="plain"><span>Overview</span><p>Before construction, the models from every discipline are combined and checked by software for places where elements collide, such as a pipe passing through a beam. These collisions are called clashes, and a single check can report thousands. Clash Organizer groups them by area of the building so that each team can see its share, and carries notes and decisions over when the check is repeated.</p></div>
-  <div class="result"><span>Result</span>Every action applies only to the selected clash tests and can be undone in <strong>one step</strong>. Where a clash could match two others, Clash Organizer leaves it unchanged and does not guess.</div>
-  <h2>The problem</h2>
-  <p class="problem">A clash run can report thousands of clashes when the real coordination problems number a few hundred. Sorting them by area manually, and losing every status and comment when the test is rerun, can take days.</p>
-  <h2>The solution</h2>
-  <p><strong>Clash Organizer</strong> is an add-in for Navisworks Manage 2022 to 2027. It has three functions.</p><p><strong>Zones.</strong> Clashes are grouped by the zone in which they are located, with one group per zone, or the zone name is placed in front of each clash name. A zone can be any 3D object: a mass, a room, or a separate zones model. The actual shape is used, not a bounding box, and where zones overlap the smallest one takes precedence.</p><p><strong>Status transfer.</strong> The status, assignee, approval, description and comments of each clash are saved and then restored to the same clashes in the same file or in another one, including from a Navisworks XML clash report. Clashes are matched first by their unique ID and then by the pair of elements.</p><p><strong>Clean-up.</strong> Clashes can be taken out of their groups again, and zone names can be removed from the clash names.</p>
+  <h2>Overview</h2>
+  <p><strong>Clash Organizer</strong> is an add-in for Navisworks Manage 2022 to 2027. It has three functions.</p><p><strong>Zones.</strong> Clashes are grouped by the zone in which they are located, with one group per zone, or the zone name is placed in front of each clash name. A zone can be any 3D object: a mass, a room, or a separate zones model. The actual shape is used, not a bounding box, and where zones overlap the smallest one takes precedence.</p><p><strong>Status transfer.</strong> The status, assignee, approval, description and comments of each clash are saved and then restored to the same clashes in the same file or in another one, including from a Navisworks XML clash report. Clashes are matched first by their unique ID and then by the pair of elements.</p><p><strong>Clean-up.</strong> Clashes can be taken out of their groups again, and zone names can be removed from the clash names.</p><p>Every action applies only to the selected clash tests and can be undone in one step. Where a clash could match two others, it is left unchanged.</p>
+  
   <h2>Features</h2><ul class="features"><li>Groups clashes by the zone their clash point lies in, one group per zone, or adds the zone in front of each clash name</li><li>Zones can be any 3D objects: masses, rooms, generic models or a separate zones model</li><li>Uses the real zone shape, with a simple bounding box as a faster option for simple zones</li><li>Where zones overlap, the smallest wins; clashes outside every zone go to a "No zone" group</li><li>The zone name comes from the object's name or from any of its properties</li><li>Saves the status, assignee, approval, description and comments of clashes to a file</li><li>Loads them onto the same clashes in this or another Navisworks file, also from a Navisworks XML clash report</li><li>Matches clashes by their unique ID first, then by the pair of clashing elements; a clash with two possible matches is left alone</li><li>Clean up: moves clashes out of their groups, or removes the zone names again</li><li>Every action applies to the selected clash tests and is a single undo step</li><li>One add-in for Navisworks Manage 2022 to 2027, with its own ribbon tab, keyboard shortcuts and a per-user install</li></ul>
   <h2>Glossary</h2><dl class="gloss"><div><dt>Navisworks</dt><dd>Autodesk software that combines the models of all disciplines into one and checks them for clashes.</dd></div><div><dt>Add-in</dt><dd>A small program that runs inside another program, here inside Revit or Navisworks, and adds new buttons and features to it.</dd></div><div><dt>Clash</dt><dd>A place where two parts of a building model collide, for example a pipe running through a beam.</dd></div></dl>
   
@@ -66,10 +63,7 @@
 </main>
 
 <section id="contact"><div class="wrap"><div class="contact">
-  <p class="eyebrow">Contact</p>
-  <h2>Get in touch</h2>
-  <p>I welcome conversations about BIM automation, openBIM and applied AI in architecture, engineering and
-  construction, as well as invitations to speak or collaborate.</p>
+  <h2>Contact</h2>
   <div class="links">
     <a class="btn primary" href="mailto:mohamedkmahdy@outlook.com">Email</a>
     <a class="btn" href="https://www.linkedin.com/in/mohamedkmahdy/" rel="noopener">LinkedIn</a>
