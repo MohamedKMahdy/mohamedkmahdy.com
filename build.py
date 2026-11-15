@@ -938,7 +938,7 @@ def build_index():
     older = "".join(job(*j) for j in JOBS[4:])
 
     return head(f"{NAME} | BIM &amp; AI Solutions Architect",
-                "BIM &amp; AI Solutions Architect in Munich: Revit and Navisworks tools, cloud integrations and AI on top of BIM data.",
+                "Mohamed K. Mahdy is a BIM &amp; AI Solutions Architect at Sweco in Munich. Six years of software development for architecture and engineering: Revit and Navisworks add-ins, batch automation, cloud integrations and AI on BIM data.",
                 "", BASE, "og-image.png?v=" + hashlib.sha1(open(os.path.join(SITE, "og-image.png"), "rb").read()).hexdigest()[:8],
                 extra=person_ld() + '<meta name="google-site-verification" content="Gh_Y4zDJrPsQuyGixeHalLNtRG6ToXv2HcZ_dXotk8M">\n') + f"""
 <main id="main">
