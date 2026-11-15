@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Static site generator for mohamedkmahdy.com (hosted on Cloudflare Pages, deployed on every push to main).
 Run: python3 build.py   (from the site/ directory)"""
-import os, re, html, hashlib
+import os, re, html, hashlib, json
 
 SITE = os.path.dirname(os.path.abspath(__file__))
 OUT_PROJ = os.path.join(SITE, 'projects')
@@ -800,7 +800,10 @@ bs.forEach(function(b){b.addEventListener('click',function(){var k=b.getAttribut
 bs.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
 cs.forEach(function(c){c.hidden=k!=='all'&&(' '+c.getAttribute('data-cats')+' ').indexOf(' '+k+' ')<0});});});})();"""
 
-def head(title, desc, root, url, og="og-image.png"):
+def head(title, desc, root, url, og="og-image.png", index=True, extra=""):
+    # Search engines get one address per page: the form Cloudflare Pages serves (no ".html", home page with "/").
+    CANON = (f'<link rel="canonical" href="{url + "/" if url == BASE else url}">\n' if index
+             else '<meta name="robots" content="noindex">\n')
     RSS_LINK = (f'<link rel="alternate" type="application/rss+xml" title="Notes by {NAME}" href="{BASE}/feed.xml">\n'
                 if PUBLISH_NOTES else "")
     NOTES_NAV = f'    <a href="{root}index.html#notes">Notes</a>\n' if PUBLISH_NOTES else ""
@@ -811,7 +814,7 @@ def head(title, desc, root, url, og="og-image.png"):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
 <meta name="description" content="{desc}">
-<meta property="og:title" content="{title}">
+{CANON}<meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="{url}">
@@ -826,7 +829,7 @@ def head(title, desc, root, url, og="og-image.png"):
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 {RSS_LINK}<link rel="stylesheet" href="{root}style.css?v={CSS_VER}">
-</head>
+{extra}</head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="nav"><div class="wrap">
@@ -840,6 +843,21 @@ def head(title, desc, root, url, og="og-image.png"):
   <button id="tt" type="button" aria-label="Switch between light and dark theme">◐</button>
 </div></header>
 """
+
+def person_ld():
+    # Structured data (schema.org) for search engines: who the site belongs to. Facts only.
+    data = {"@context": "https://schema.org", "@graph": [
+        {"@type": "WebSite", "@id": BASE + "/#website", "url": BASE + "/", "name": NAME, "inLanguage": "en"},
+        {"@type": "ProfilePage", "@id": BASE + "/#profile", "url": BASE + "/", "isPartOf": {"@id": BASE + "/#website"},
+         "mainEntity": {"@id": BASE + "/#person"}},
+        {"@type": "Person", "@id": BASE + "/#person", "name": NAME, "url": BASE + "/",
+         "image": BASE + "/img/headshot.jpg", "jobTitle": html.unescape(ROLE),
+         "worksFor": {"@type": "Organization", "name": "Sweco"},
+         "address": {"@type": "PostalAddress", "addressLocality": "Munich", "addressCountry": "DE"},
+         "alumniOf": [{"@type": "CollegeOrUniversity", "name": "Technical University of Munich"},
+                      {"@type": "CollegeOrUniversity", "name": "Alexandria University"}],
+         "sameAs": [LINKEDIN, GITHUB]}]}
+    return '<script type="application/ld+json">' + json.dumps(data, ensure_ascii=False) + '</script>\n'
 
 def contact(root):
     return f"""
@@ -921,7 +939,8 @@ def build_index():
 
     return head(f"{NAME} | BIM &amp; AI Solutions Architect",
                 "BIM &amp; AI Solutions Architect in Munich: Revit and Navisworks tools, cloud integrations and AI on top of BIM data.",
-                "", BASE, "og-image.png?v=" + hashlib.sha1(open(os.path.join(SITE, "og-image.png"), "rb").read()).hexdigest()[:8]) + f"""
+                "", BASE, "og-image.png?v=" + hashlib.sha1(open(os.path.join(SITE, "og-image.png"), "rb").read()).hexdigest()[:8],
+                extra=person_ld() + '<meta name="google-site-verification" content="Gh_Y4zDJrPsQuyGixeHalLNtRG6ToXv2HcZ_dXotk8M">\n') + f"""
 <main id="main">
 <div class="hero band"><div class="wrap">
 <div class="grid">
@@ -1170,7 +1189,7 @@ def build_note(n):
 
 def build_404():
     # Cloudflare Pages serves this file, with status 404, for any address that does not exist.
-    return head(f"Page not found | {NAME}", "The requested page does not exist.", "/", BASE) + f"""
+    return head(f"Page not found | {NAME}", "The requested page does not exist.", "/", BASE, index=False) + f"""
 <main id="main">
 <div class="hero band"><div class="wrap">
   <p class="hello">Error 404</p>
@@ -1242,6 +1261,15 @@ open(os.path.join(SITE, '_redirects'), 'w').write("".join(
     f"/projects/{old} /projects/{new} 301\n/projects/{old}.html /projects/{new} 301\n" for old, new in REDIRECTS.items())
     # old note addresses go to the home page instead of a not-found page
     + ("" if PUBLISH_NOTES else "/notes/* / 302\n/feed.xml / 302\n"))
+# For search engines: the list of pages, permission to crawl them, and two rules that keep copies out of the index
+# (the project's pages.dev address, and the page the preview image is rendered from).
+open(os.path.join(SITE, 'sitemap.xml'), 'w').write(
+    '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+    + "".join(f"  <url><loc>{u}</loc></url>\n" for u in [BASE + "/"] + [f"{BASE}/projects/{p['slug']}" for p in P])
+    + '</urlset>\n')
+open(os.path.join(SITE, 'robots.txt'), 'w').write(f"User-agent: *\nAllow: /\n\nSitemap: {BASE}/sitemap.xml\n")
+open(os.path.join(SITE, '_headers'), 'w').write(
+    "https://:project.pages.dev/*\n  X-Robots-Tag: noindex\n\n/_og-source*\n  X-Robots-Tag: noindex\n")
 print(f"built: index.html, style.css, {len(P)} project pages, {len(NOTES) if PUBLISH_NOTES else 0} notes, {sum(og_made)} preview images")
 for p in P:
     n = len(p['media'])
