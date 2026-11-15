@@ -409,6 +409,9 @@ for _p in P:
 # ---------------------------------------------------------------- notes
 # Short dated write-ups in my own voice. A string starting with "## " is a heading, anything else a paragraph.
 # `related` lists project slugs shown under the note.
+# The notes are not published (removed from the site on 2026-11-15: portfolio items only).
+# The text is kept here; set PUBLISH_NOTES to True to bring the section, pages and feed back.
+PUBLISH_NOTES = False
 NOTES = [
 dict(slug="rules-for-ai-on-bim-data", date="2026-11-11",
   title="Six rules for applying language models to BIM data",
@@ -597,7 +600,7 @@ color:var(--fg);background:var(--card);transition:background-color .15s,border-c
 /* sections */
 section{padding:96px 0}
 section+section{border-top:1px solid var(--line)}
-#services,#notes,#about{background:var(--bg-alt)}
+#services,#notes,#experience{background:var(--bg-alt)}
 .sec-head{margin:0 0 40px;max-width:var(--read)}
 .eyebrow{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--fg-faint);margin:0 0 10px}
 h2{font-size:clamp(28px,3.6vw,38px);line-height:1.15;letter-spacing:-.03em;margin:0 0 12px;font-weight:700;color:var(--fg)}
@@ -814,6 +817,9 @@ bs.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
 cs.forEach(function(c){c.hidden=k!=='all'&&(' '+c.getAttribute('data-cats')+' ').indexOf(' '+k+' ')<0});});});})();"""
 
 def head(title, desc, root, url, og="og-image.png"):
+    RSS_LINK = (f'<link rel="alternate" type="application/rss+xml" title="Notes by {NAME}" href="{BASE}/feed.xml">\n'
+                if PUBLISH_NOTES else "")
+    NOTES_NAV = f'    <a href="{root}index.html#notes">Notes</a>\n' if PUBLISH_NOTES else ""
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -835,8 +841,7 @@ def head(title, desc, root, url, og="og-image.png"):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
-<link rel="alternate" type="application/rss+xml" title="Notes by {NAME}" href="{BASE}/feed.xml">
-<link rel="stylesheet" href="{root}style.css?v={CSS_VER}">
+{RSS_LINK}<link rel="stylesheet" href="{root}style.css?v={CSS_VER}">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -845,8 +850,7 @@ def head(title, desc, root, url, og="og-image.png"):
   <nav aria-label="Main">
     <a class="hide-sm" href="{root}index.html#services">Expertise</a>
     <a href="{root}index.html#work">Work</a>
-    <a href="{root}index.html#notes">Notes</a>
-    <a class="hide-sm" href="{root}index.html#experience">Experience</a>
+{NOTES_NAV}    <a class="hide-sm" href="{root}index.html#experience">Experience</a>
     <a href="{root}index.html#about">About</a>
     <a class="cta" href="{root}index.html#contact">Contact</a>
   </nav>
@@ -921,6 +925,17 @@ def build_index():
     note_rows = "".join(f"""
     <a class="note" href="notes/{n['slug']}.html"><time datetime="{n['date']}">{nice_date(n['date'])}</time>
       <div><h3>{n['title']}</h3><p>{n['lead']}</p></div><span class="go">Read →</span></a>""" for n in NOTES)
+    notes_section = f"""<section id="notes"><div class="wrap">
+  <div class="sec-head">
+    <p class="eyebrow">Notes</p>
+    <h2>Perspectives on BIM automation and AI</h2>
+    <p>Short articles on the principles and checklists behind the projects above.</p>
+  </div>
+  <div class="notes">{note_rows}</div>
+  <p class="feed">New notes are also available by <a href="feed.xml">RSS</a>.</p>
+</div></section>
+
+""" if PUBLISH_NOTES else ""
     recent = "".join(job(*j) for j in JOBS[:4])
     older = "".join(job(*j) for j in JOBS[4:])
 
@@ -975,17 +990,7 @@ def build_index():
   <div class="cards compact">{cards}</div>
 </div></section>
 
-<section id="notes"><div class="wrap">
-  <div class="sec-head">
-    <p class="eyebrow">Notes</p>
-    <h2>Perspectives on BIM automation and AI</h2>
-    <p>Short articles on the principles and checklists behind the projects above.</p>
-  </div>
-  <div class="notes">{note_rows}</div>
-  <p class="feed">New notes are also available by <a href="feed.xml">RSS</a>.</p>
-</div></section>
-
-<section id="experience"><div class="wrap">
+{notes_section}<section id="experience"><div class="wrap">
   <div class="sec-head">
     <p class="eyebrow">Experience</p>
     <h2>Professional experience</h2>
@@ -1246,14 +1251,24 @@ CSS_VER = hashlib.sha1(CSS.encode()).hexdigest()[:8]
 open(os.path.join(SITE, 'style.css'), 'w').write(CSS)
 open(os.path.join(SITE, 'index.html'), 'w').write(build_index())
 og_made = [build_og(p) for p in P]
-for n in NOTES:
-    build_og(dict(slug='note-' + n['slug'], title=n['title'], tag='Note · ' + nice_date(n['date']), card=n['lead'], media=[]))
+if PUBLISH_NOTES:
+    for n in NOTES:
+        build_og(dict(slug='note-' + n['slug'], title=n['title'], tag='Note · ' + nice_date(n['date']), card=n['lead'], media=[]))
 for i, p in enumerate(P):
     open(os.path.join(OUT_PROJ, p['slug'] + '.html'), 'w').write(build_project(i, p))
-OUT_NOTES = os.path.join(SITE, 'notes'); os.makedirs(OUT_NOTES, exist_ok=True)
-for n in NOTES:
-    open(os.path.join(OUT_NOTES, n['slug'] + '.html'), 'w').write(build_note(n))
-open(os.path.join(SITE, 'feed.xml'), 'w').write(build_feed())
+OUT_NOTES = os.path.join(SITE, 'notes')
+if PUBLISH_NOTES:
+    os.makedirs(OUT_NOTES, exist_ok=True)
+    for n in NOTES:
+        open(os.path.join(OUT_NOTES, n['slug'] + '.html'), 'w').write(build_note(n))
+    open(os.path.join(SITE, 'feed.xml'), 'w').write(build_feed())
+else:
+    # remove anything an earlier build left behind
+    import shutil
+    shutil.rmtree(OUT_NOTES, ignore_errors=True)
+    for stale in ['feed.xml'] + [os.path.join('og', 'note-' + n['slug'] + '.png') for n in NOTES]:
+        if os.path.exists(os.path.join(SITE, stale)):
+            os.remove(os.path.join(SITE, stale))
 open(os.path.join(SITE, '404.html'), 'w').write(build_404())
 for old, new in REDIRECTS.items():
     open(os.path.join(OUT_PROJ, old + '.html'), 'w').write(
@@ -1262,8 +1277,10 @@ for old, new in REDIRECTS.items():
         f'<p>This page moved to <a href="{new}.html">{new}.html</a>.</p>')
 # Cloudflare Pages answers these with a real 301 before the HTML stubs above are ever served.
 open(os.path.join(SITE, '_redirects'), 'w').write("".join(
-    f"/projects/{old} /projects/{new} 301\n/projects/{old}.html /projects/{new} 301\n" for old, new in REDIRECTS.items()))
-print(f"built: index.html, style.css, {len(P)} project pages, {len(NOTES)} notes, {sum(og_made)} preview images")
+    f"/projects/{old} /projects/{new} 301\n/projects/{old}.html /projects/{new} 301\n" for old, new in REDIRECTS.items())
+    # old note addresses go to the home page instead of a not-found page
+    + ("" if PUBLISH_NOTES else "/notes/* / 302\n/feed.xml / 302\n"))
+print(f"built: index.html, style.css, {len(P)} project pages, {len(NOTES) if PUBLISH_NOTES else 0} notes, {sum(og_made)} preview images")
 for p in P:
     n = len(p['media'])
     print(f"  projects/{p['slug']}.html  ({n} media)" if n else f"  projects/{p['slug']}.html")

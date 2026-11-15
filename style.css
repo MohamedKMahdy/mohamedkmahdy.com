@@ -91,7 +91,7 @@ color:var(--fg);background:var(--card);transition:background-color .15s,border-c
 /* sections */
 section{padding:96px 0}
 section+section{border-top:1px solid var(--line)}
-#services,#notes,#about{background:var(--bg-alt)}
+#services,#notes,#experience{background:var(--bg-alt)}
 .sec-head{margin:0 0 40px;max-width:var(--read)}
 .eyebrow{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--fg-faint);margin:0 0 10px}
 h2{font-size:clamp(28px,3.6vw,38px);line-height:1.15;letter-spacing:-.03em;margin:0 0 12px;font-weight:700;color:var(--fg)}
