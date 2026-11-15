@@ -477,6 +477,7 @@ JOBS = [
  ("2020 to 2021", "X-Dimension", "Cairo", "BIM Architect", "BIM standards and templates, Dynamo scripts, and Scan-to-BIM (producing models of existing buildings from laser scans)."),
 ]
 
+# Not shown on the site since 2026-11-15 (portfolio items only): WAYS, CAPS and PILLARS are kept for reference.
 # How I build: principles drawn from the projects above.
 WAYS = [
  ("People stay in control", "Every action is a single undo step, a dry run is available before anything changes, and anything proposed by AI is approved by a person."),
@@ -848,7 +849,6 @@ def head(title, desc, root, url, og="og-image.png"):
 <header class="nav"><div class="wrap">
   <a class="brand" href="{root}index.html"><i aria-hidden="true">MK</i><span>{NAME}</span></a>
   <nav aria-label="Main">
-    <a class="hide-sm" href="{root}index.html#services">Expertise</a>
     <a href="{root}index.html#work">Work</a>
 {NOTES_NAV}    <a class="hide-sm" href="{root}index.html#experience">Experience</a>
     <a href="{root}index.html#about">About</a>
@@ -967,16 +967,6 @@ def build_index():
   </div>
 </div></div>
 
-<section id="services"><div class="wrap">
-  <div class="sec-head">
-    <p class="eyebrow">Expertise</p>
-    <h2>Areas of expertise</h2>
-    <p>My work falls into three areas. Each lists the technologies involved and the projects that demonstrate it.</p>
-  </div>
-  <div class="pillars">{pillars}</div>
-  <dl class="also">{also}</dl>
-</div></section>
-
 <section id="work"><div class="wrap">
   <div class="sec-head">
     <p class="eyebrow">Selected work</p>
@@ -1016,8 +1006,6 @@ def build_index():
     Environment at the Technical University of Munich, which I completed in 2026. The programme added GIS,
     spatial data mining, photogrammetry and remote sensing to my background in semantic modelling and
     software engineering.</p>
-    <h3 class="eyebrow" style="margin-top:32px">Working principles</h3>
-    <ul class="principles">{ways}</ul>
   </div>
   <div class="side">
   <div class="edu">
