@@ -8,7 +8,7 @@ OUT_PROJ = os.path.join(SITE, 'projects')
 
 NAME  = "Mohamed K. Mahdy"
 ROLE  = "BIM &amp; AI Solutions Architect"
-LEDE  = "I build BIM automation that runs without supervision, and AI on BIM data whose answers can be checked."
+LEDE  = "Revit and Navisworks add-ins, batch automation, cloud integrations and AI tools on BIM data."
 BASE  = "https://mohamedkmahdy.com"
 DOMAIN = "mohamedkmahdy.com"  # written to CNAME; the repository is github.com/MohamedKMahdy/mohamedkmahdy.com
 EMAIL = "mohamedkmahdy@outlook.com"
@@ -950,8 +950,8 @@ def build_index():
     <h1>{NAME}</h1>
     <p class="role">{ROLE} · Munich</p>
     <p class="lede">{LEDE}</p>
-    <p class="sub">For five years I have developed the software that connects engineers with their models: add-ins,
-    background services and cloud integrations that remove repetitive coordination work.</p>
+    <p class="sub">Five years of software development for architecture and engineering teams in Egypt, the UAE
+    and Germany.</p>
     <div class="links">
       <a class="btn primary" href="#work">View selected work</a>
       <a class="btn" href="#contact">Contact</a>
