@@ -1007,9 +1007,10 @@ def build_index():
     and maintained through manual routines. My work is building the systems that connect that information.</p>
     <p>That work has included Revit and Navisworks plugins, model-health and clash dashboards, and unattended
     automation for organisations in Cairo, Dubai and Munich, alongside 18 freelance client projects.</p>
-    <p>In 2024 I left a full-time position to complete the M.Sc. in Information Technologies for the Built
-    Environment at the Technical University of Munich. The programme added GIS, spatial data mining,
-    photogrammetry and remote sensing to my background in semantic modelling and software engineering.</p>
+    <p>In 2024 I left a full-time position to study for the M.Sc. in Information Technologies for the Built
+    Environment at the Technical University of Munich, which I completed in 2026. The programme added GIS,
+    spatial data mining, photogrammetry and remote sensing to my background in semantic modelling and
+    software engineering.</p>
     <h3 class="eyebrow" style="margin-top:32px">Working principles</h3>
     <ul class="principles">{ways}</ul>
   </div>
